@@ -1,0 +1,42 @@
+{
+	"members" : [
+	
+					{ 	"name" : "Alexander",
+						"salary" : 120,
+						"age" : 25,
+					},
+					{ 	"name" : "Bertil",
+						"salary" : 100,
+						"age" : 55,
+					},
+					{ 	"name" : "Cesar",
+						"salary" : 200,
+						"age" : 37,
+					}
+				],
+				
+				
+	"risks" : [
+	
+				{   "riskName" : "Failure",
+					"impact" : 6,
+					"probability" : 5
+				},
+				{   "riskName" : "Death",
+					"impact" : 10,
+					"probability" : 3
+				},
+				{   "riskName" : "Break down",
+					"impact" : 7,
+					"probability" : 6
+				},
+				{   "riskName" : "Late",
+					"impact" : 2,
+					"probability" : 8
+				}
+			]
+	
+				
+}
+
+
