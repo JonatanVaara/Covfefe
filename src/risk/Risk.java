@@ -3,10 +3,10 @@ package risk;
 public class Risk {
 	
 	private String riskName;
-	private int impact;
-	private int probability;
+	private long impact;
+	private long probability;
 	
-	public Risk(String riskName, int impact, int probability) {
+	public Risk(String riskName, long impact, long probability) {
 		
 		this.riskName = riskName;
 		this.impact = impact;
@@ -21,23 +21,23 @@ public class Risk {
 		this.riskName = riskName;
 	}
 
-	public int getImpact() {
+	public long getImpact() {
 		return impact;
 	}
 
-	public void setImpact(int impact) {
+	public void setImpact(long impact) {
 		this.impact = impact;
 	}
 
-	public int getProbability() {
+	public long getProbability() {
 		return probability;
 	}
 
-	public void setProbability(int probability) {
+	public void setProbability(long probability) {
 		this.probability = probability;
 	}
 	
-	public int risk() {
+	public long risk() {
 		
 		return this.getImpact() * this.getProbability();
 	}

@@ -41,8 +41,8 @@ public class JsonReader {
 			JSONObject object = iterator.next();
 
 			String riskName = (String) object.get("riskName");
-			int impact = (int) object.get("impact");
-			int probability = (int) object.get("probability");
+			long impact = (long) object.get("impact");
+			long probability = (long) object.get("probability");
 
 			Risk newRisk = new Risk(riskName, impact, probability);
 
