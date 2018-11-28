@@ -1,6 +1,7 @@
 package jsonReader;
 
 import risk.Risk;
+import risk.RiskMatrix;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -19,8 +20,11 @@ public class JsonReader {
 		ArrayList<Risk> riskList = x.riskReader();
 	
 		//System.out.println(memberList);
-		System.out.println("-----------------------");
-		System.out.println(riskList);
+		//System.out.println("-----------------------");
+		//System.out.println(riskList);
+		
+		RiskMatrix riskMatrix = new RiskMatrix(riskList);
+		System.out.println(riskMatrix.matrixPrint());
 		
 		//RiskMatrix matrix = new RiskMatrix(riskList);
 		//matrix.plotMatrix();
