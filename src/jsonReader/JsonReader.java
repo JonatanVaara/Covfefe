@@ -15,19 +15,7 @@ public class JsonReader {
 	
 	public static void main(String[] args) {
 		
-		JsonReader x = new JsonReader();
-		//ArrayList<Member> memberList = x.memberReader();
-		ArrayList<Risk> riskList = x.riskReader();
 	
-		//System.out.println(memberList);
-		//System.out.println("-----------------------");
-		//System.out.println(riskList);
-		
-		RiskMatrix riskMatrix = new RiskMatrix(riskList);
-		System.out.println(riskMatrix.matrixPrint());
-		
-		//RiskMatrix matrix = new RiskMatrix(riskList);
-		//matrix.plotMatrix();
 		
 	}
 	
