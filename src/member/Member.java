@@ -4,19 +4,21 @@ import java.util.HashMap;
 
 public class Member {
 	
+	private String ID;
 	private String name;
 	private long salary;
-	private long ID;
-	private HashMap<String, Long> plannedTaskTime;
+	//private HashMap<String, Long> plannedTaskTime;
 	//private HashMap<String, Long> allocatedTaskTime;
 	
-	public Member(String name, long salary, long age, HashMap<String, Long> plannedTaskTime ) {
-		
+	//public Member(long ID, String name, long salary, HashMap<String, Long> plannedTaskTime ) {
+		public Member(String ID, String name, long salary) {
+	
+		this.ID = ID;
 		this.name = name;
 		this.salary = salary;
-		this.ID = age;
 		
-		this.plannedTaskTime = plannedTaskTime;
+		
+		//this.plannedTaskTime = plannedTaskTime;
 		//this.allocatedTaskTime = allocatedTaskTime;
 		
 	}
@@ -42,30 +44,32 @@ public class Member {
 	}
 
 
-	public long getID() {
+	public String getID() {
 		return ID;
 	}
 
 
-	public void setID(long ID) {
+	public void setID(String ID) {
 		this.ID = ID;
 	}
 
 
-	public HashMap<String, Long> getPlannedTaskTime() {
-		return plannedTaskTime;
-	}
-
-
-	public void setPlannedTaskTime(HashMap<String, Long> plannedTaskTime) {
-		this.plannedTaskTime = plannedTaskTime;
-	}
+//	public HashMap<String, Long> getPlannedTaskTime() {
+//		return plannedTaskTime;
+//	}
+//
+//
+//	public void setPlannedTaskTime(HashMap<String, Long> plannedTaskTime) {
+//		this.plannedTaskTime = plannedTaskTime;
+//	}
 
 
 	public String toString() {
 	
-		String print = "\nMemeber information: \nName: " + this.getName() + "\nID: " + this.getID();
-		print += "\nSalary: " + this.getSalary() + "\n" + this.getPlannedTaskTime();
+		String print = "\nMember information: \nID:" + this.getID(); 
+		print+= "\nName: " + this.getName();
+		print += "\nSalary: " + this.getSalary() + " SEK\n";
+		//print+= + this.getPlannedTaskTime();
 		
 		return print;
 	}
