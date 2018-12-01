@@ -2,11 +2,11 @@ package jsonReader;
 
 import risk.Risk;
 import risk.RiskMatrix;
-
 import member.Member;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.json.simple.JSONArray;
@@ -19,17 +19,23 @@ public class JsonReader {
 		
 		JsonReader x = new JsonReader();
 		ArrayList<Member> memberList = x.memberReader();
-		//ArrayList<Risk> riskList = x.riskReader();
+		ArrayList<Risk> riskList = x.riskReader();
 	
-		//System.out.println(memberList);
-		//System.out.println("-----------------------");
-		//System.out.println(riskList);
-		
-//		RiskMatrix riskMatrix = new RiskMatrix(riskList);
-//		System.out.println(riskMatrix.matrixPrint());
-		System.out.println(memberList.toString());
+		System.out.println(memberList);
+		System.out.println("-----------------------");
+		System.out.println(riskList);
+		System.out.println("-----------------------");
 
+		RiskMatrix riskMatrix = new RiskMatrix(riskList);
+		System.out.println(riskMatrix.matrixPrint());
+		System.out.println("-------Test with Member List 0-------");
+		System.out.println(memberList.get(0).getName() + ":\n" + "Tasks:" + memberList.get(0).getPlannedTasks()+"\nTotal Time: " + memberList.get(0).getTotalTimePlanned());
 		
+		// nicer print
+		for (String task : memberList.get(0).getPlannedTasks())
+		{
+			System.out.println(task);
+		}
 		//RiskMatrix matrix = new RiskMatrix(riskList);
 		//matrix.plotMatrix();
 		
@@ -83,8 +89,10 @@ public class JsonReader {
 			String ID = (String) object.get("ID");
 			String name = (String) object.get("name");
 			long salary = (long) object.get("salary");
+			HashMap<String, Long> plannedTaskTime = (HashMap) object.get("plannedTaskTime");
+			
 
-			Member newMember = new Member(ID, name, salary);
+			Member newMember = new Member(ID, name, salary, plannedTaskTime);
 
 			memberList.add(newMember);
 		}

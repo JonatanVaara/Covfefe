@@ -5,16 +5,21 @@
 						"ID" : "M001",
 						"name" : "Alexander",
 						"salary" : 120,
+						"plannedTaskTime" : {"Planning" : 7, "Building" : 4, "Coding" : 2}
+						
 					},
 					{ 	
 						"ID" : "M002",
 						"name" : "Bertil",
 						"salary" : 100,
+						"plannedTaskTime" : {"Planning" : 0, "Building" : 11, "Coding" : 2}
+						
 					},
 					{ 	
 						"ID" : "M003",
 						"name" : "Cesar",
 						"salary" : 200,
+						"plannedTaskTime" : {"Planning" : 22, "Building" : 33, "Coding" : 51}
 					}
 				]
 	
