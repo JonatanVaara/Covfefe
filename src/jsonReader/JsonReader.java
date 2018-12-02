@@ -14,33 +14,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class JsonReader {
-	
-	public static void main(String[] args) {
 		
-		JsonReader x = new JsonReader();
-		ArrayList<Member> memberList = x.memberReader();
-		ArrayList<Risk> riskList = x.riskReader();
-	
-		System.out.println(memberList);
-		System.out.println("-----------------------");
-		System.out.println(riskList);
-		System.out.println("-----------------------");
-
-		RiskMatrix riskMatrix = new RiskMatrix(riskList);
-		System.out.println(riskMatrix.matrixPrint());
-		System.out.println("-------Test with Member List 0-------");
-		System.out.println(memberList.get(0).getName() + ":\n" + "Tasks:" + memberList.get(0).getPlannedTasks()+"\nTotal Time: " + memberList.get(0).getTotalTimePlanned());
-		
-		// nicer print
-		for (String task : memberList.get(0).getPlannedTasks())
-		{
-			System.out.println(task);
-		}
-		//RiskMatrix matrix = new RiskMatrix(riskList);
-		//matrix.plotMatrix();
-		
-	}
-	
 	//------------
 	// RISK READER
 	//------------
@@ -90,9 +64,10 @@ public class JsonReader {
 			String name = (String) object.get("name");
 			long salary = (long) object.get("salary");
 			HashMap<String, Long> plannedTaskTime = (HashMap) object.get("plannedTaskTime");
+			HashMap<String, Long> allocatedTaskTime = (HashMap) object.get("allocatedTaskTime");
 			
 
-			Member newMember = new Member(ID, name, salary, plannedTaskTime);
+			Member newMember = new Member(ID, name, salary, plannedTaskTime, allocatedTaskTime);
 
 			memberList.add(newMember);
 		}
@@ -100,9 +75,9 @@ public class JsonReader {
 	}
 	
 	
-	//-----------
-	//JSON READER
-	//-----------
+	//------------------
+	//ACTUAL JSON READER
+	//------------------
 	
 	public JSONObject readJsonObject(String choosenInput) {
 		

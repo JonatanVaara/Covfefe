@@ -9,9 +9,9 @@ public class Member {
 	private String name;
 	private long salary;
 	private HashMap<String, Long> plannedTaskTime;
-	//private HashMap<String, Long> allocatedTaskTime;
+	private HashMap<String, Long> allocatedTaskTime;
 	
-	public Member(String ID, String name, long salary, HashMap<String, Long> plannedTaskTime ) {
+	public Member(String ID, String name, long salary, HashMap<String, Long> plannedTaskTime, HashMap<String, Long> allocatedTaskTime ) {
 	
 		this.ID = ID;
 		this.name = name;
@@ -19,10 +19,13 @@ public class Member {
 		
 		
 		this.plannedTaskTime = plannedTaskTime;
-		//this.allocatedTaskTime = allocatedTaskTime;
+		this.allocatedTaskTime = allocatedTaskTime;
 		
 	}
 	
+	//-------------------
+	//getters & setters
+	//-------------------
 	
 	public String getName() {
 		return name;
@@ -53,6 +56,10 @@ public class Member {
 		this.ID = ID;
 	}
 
+	//-------------------
+	//plannedTimeFeatures
+	//-------------------
+	
 	public Set <String> getPlannedTasks (){
 		Set <String> tasks = plannedTaskTime.keySet();
       	return tasks;
@@ -72,14 +79,53 @@ public class Member {
 		}
 		return sum;
 	}
+	
+	public long getPlannedCosts (){
+		long totalCosts = getTotalTimePlanned()*this.salary;		
+		return totalCosts;
+	}
 
+	//-----------------
+	//allocatedFeatures
+	//-----------------
+	
+	public Set <String> getAllocatedTasks (){
+		Set <String> tasks = allocatedTaskTime.keySet();
+      	return tasks;
+	}
+
+
+	public void setAllocatedTaskTime(String task, long time) {
+		allocatedTaskTime.put(name, time);
+	}
+	
+	public long getTotalTimeAllocated ()
+	{
+		long sum = 0;
+		for(long value : allocatedTaskTime.values())
+		{
+			sum += value;
+		}
+		return sum;
+	}
+	
+	public long getAllocatedCosts (){
+		long totalCosts = getTotalTimeAllocated()*this.salary;		
+		return totalCosts;
+	}
+	
+	
+	//--------
+	//toString
+	//--------
 
 	public String toString() {
 	
 		String print = "\nMember information: \nID: " + this.getID(); 
 		print+= "\nName: " + this.getName();
 		print += "\nSalary: " + this.getSalary() + " SEK\n";
-		print+= this.plannedTaskTime;
+		print+= this.plannedTaskTime + "\n";
+		print+= this.allocatedTaskTime + "\n";
 		print+= "\n";
 		
 		return print;

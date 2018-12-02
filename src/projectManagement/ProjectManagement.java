@@ -1,7 +1,10 @@
 package projectManagement;
 
 import java.util.ArrayList;
+
+import member.Member;
 import risk.RiskMatrix;
+import taskSchedule.Schedule;
 
 public class ProjectManagement {
 	
