@@ -14,7 +14,7 @@ public class RiskMatrix {
 
 	}
 
-	public String matrixPrint() {
+	public String printRiskMatrix() {
 		String print = ("    Name    \t    Impact\t|    Probability\t|    Risk\t|" + NEW_LINE);
 		for (Risk risk : riskList) {
 			print += ("    " + risk.getRiskName() + "\t    " + risk.getImpact() + "\t\t|    " + risk.getProbability()
