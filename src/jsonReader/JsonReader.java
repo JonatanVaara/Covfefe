@@ -2,6 +2,7 @@ package jsonReader;
 
 import risk.Risk;
 import risk.RiskMatrix;
+import taskSchedule.Task;
 import member.Member;
 
 import java.io.FileReader;
@@ -72,6 +73,30 @@ public class JsonReader {
 			memberList.add(newMember);
 		}
 		return memberList;
+	}
+	
+	//Task Reader
+	
+	public ArrayList<Task> taskReader() {
+
+		ArrayList<Task> taskList = new ArrayList<>();
+
+		String fileLocation = "task";
+
+		JSONObject jsonObject = this.readJsonObject(fileLocation);
+		JSONArray tasks = (JSONArray) jsonObject.get("tasks");
+
+		Iterator<JSONObject> iterator = tasks.iterator();
+
+		while (iterator.hasNext()) {
+			JSONObject object = iterator.next();
+
+			Task newTask = new Task(object);
+
+			taskList.add(newTask);
+		}
+		return taskList;
+
 	}
 	
 	

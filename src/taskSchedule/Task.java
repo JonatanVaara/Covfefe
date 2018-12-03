@@ -1,6 +1,9 @@
 package taskSchedule;
 
 import java.util.Date;
+import java.text.*;
+
+import org.json.simple.JSONObject;
 
 public class Task {
 	
@@ -9,15 +12,27 @@ public class Task {
 	private Date endDate;
 	private boolean taskComplete;
 	
-	public Task(String name, Date startDate, Date endDate) {
+	public Task(JSONObject task) {
 		
-		this.name = name;
-		this.startDate = startDate;
-		this.endDate = endDate;
+		
+		this.name = (String) task.get("Name");
+		String startDate = (String) task.get("Start Date");
+		String endDate = (String) task.get("End Date");
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		
+		try {
+			this.startDate = dateFormat.parse(startDate);
+			this.endDate = dateFormat.parse(endDate);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		this.taskComplete = false;
 	}
-
+	
+	
 	public String getName() {
 		return name;
 	}
