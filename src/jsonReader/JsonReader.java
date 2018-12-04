@@ -21,11 +21,11 @@ public class JsonReader {
 	//------------
 	public ArrayList<Risk> riskReader() {
 		
-		String nameToRead = "risks.json"; //<-- defines name and file name
+		String fileLocation = "risks.json"; //<-- defines file name
 		ArrayList<Risk> riskList = new ArrayList<>();
 
-		JSONObject jsonObject = readJsonObject(nameToRead);
-		JSONArray risk = (JSONArray) jsonObject.get(nameToRead);
+		JSONObject jsonObject = readJsonObject(fileLocation);
+		JSONArray risk = (JSONArray) jsonObject.get("risk");
 
 		Iterator<JSONObject> iterator = risk.iterator();
 
@@ -50,11 +50,11 @@ public class JsonReader {
 	
 	public ArrayList<Member> memberReader() {
 		
-		String nameToRead = "members.json"; //<-- defines name and file name
+		String fileLocation = "members.json"; //<-- defines file name
 		ArrayList<Member> memberList = new ArrayList<>();
 
-		JSONObject jsonObject = this.readJsonObject(nameToRead);
-		JSONArray members = (JSONArray) jsonObject.get(nameToRead);
+		JSONObject jsonObject = this.readJsonObject(fileLocation);
+		JSONArray members = (JSONArray) jsonObject.get("member");
 
 		Iterator<JSONObject> iterator = members.iterator();
 
