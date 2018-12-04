@@ -34,31 +34,31 @@ public class Menu {
 			switch (option) {
 
 			case RISK_MATRIX:
-				printRiskMatrix();
+				// printRiskMatrix();
 				break;
 
 			case EARND_VALUE:
-				printEarndValue();
+				// printEarndValue();
 				break;
 
 			case SCHDULED_VARIENCE:
-				printSchduledVarience();
+				// printSchduledVarience();
 				break;
 
 			case COST_VARIENCE:
-				printCostVarience();
+				// printCostVarience();
 				break;
 
 			case TIME_SPENT:
-				printTimeSpent();
+				// printTimeSpent();
 				break;
 
 			case ALL_TIME_SPENT:
-				printAllTimeSpent();
+				// printAllTimeSpent();
 				break;
 
 			case PLOT_SCHEDULE:
-				printPlotSchedule();
+				// printPlotSchedule();
 				break;
 
 			case QUIT:
@@ -81,6 +81,12 @@ public class Menu {
 		System.out.println(" 6. All Time Spent");
 		System.out.println(" 7. plot Schedule");
 		System.out.println(" 8. Quit");
+	}
+
+	public static void main(String[] arge) {
+		Menu menu = new Menu();
+		menu.run();
+
 	}
 
 }
