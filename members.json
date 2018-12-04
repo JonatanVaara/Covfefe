@@ -6,8 +6,13 @@
 						"name" : "Alexander",
 						"salary" : 120,
 						"plannedTaskTime" : {"Planning" : 7, "Building" : 4, "Coding" : 2}
-						"allocatedTaskTime" : {"Planning" : 2, "Building" : 3, "Coding" : 1}
-						
+						"allocatedTaskTime" : {
+							"Planning": {
+								"24/12/2088": 5,
+								"dno": 3
+							},
+							
+						}
 					},
 					{ 	
 						"ID" : "M002",
