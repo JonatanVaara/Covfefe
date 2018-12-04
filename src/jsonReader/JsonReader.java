@@ -21,7 +21,7 @@ public class JsonReader {
 	//------------
 	public ArrayList<Risk> riskReader() {
 		
-		String nameToRead = "risk"; //<-- defines name and file name
+		String nameToRead = "risks.json"; //<-- defines name and file name
 		ArrayList<Risk> riskList = new ArrayList<>();
 
 		JSONObject jsonObject = readJsonObject(nameToRead);
@@ -50,7 +50,7 @@ public class JsonReader {
 	
 	public ArrayList<Member> memberReader() {
 		
-		String nameToRead = "member"; //<-- defines name and file name
+		String nameToRead = "members.json"; //<-- defines name and file name
 		ArrayList<Member> memberList = new ArrayList<>();
 
 		JSONObject jsonObject = this.readJsonObject(nameToRead);
@@ -81,7 +81,7 @@ public class JsonReader {
 
 		ArrayList<Task> taskList = new ArrayList<>();
 
-		String fileLocation = "task";
+		String fileLocation = "plannedSchedule.json";
 
 		JSONObject jsonObject = this.readJsonObject(fileLocation);
 		JSONArray tasks = (JSONArray) jsonObject.get("tasks");
@@ -106,7 +106,7 @@ public class JsonReader {
 	
 	public JSONObject readJsonObject(String choosenInput) {
 		
-		String fileName = choosenInput+"s.json";
+		String fileName = choosenInput;
 		JSONParser parser = new JSONParser();
 		
 		JSONObject jsonObject = null;
