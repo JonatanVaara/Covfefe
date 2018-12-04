@@ -18,7 +18,7 @@ public class Menu {
 			ArrayList<Risk> riskList = x.riskReader();
 		
 			RiskMatrix riskMatrix = new RiskMatrix(riskList);
-			System.out.println(riskMatrix.matrixPrint());
+			System.out.println(riskMatrix.printRiskMatrix());
 			
 			System.out.println("Hej");
 		} else if(type.equals("Christian")) {

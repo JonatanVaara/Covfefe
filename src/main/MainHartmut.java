@@ -57,7 +57,7 @@ public static void main(String[] args) {
 		System.out.println("-----------------------");
 
 		RiskMatrix riskMatrix = new RiskMatrix(riskList);
-		System.out.println(riskMatrix.matrixPrint());
+		System.out.println(riskMatrix.printRiskMatrix());
 		//matrix.plotMatrix();
 
 		System.out.println("------------MEMBER PART-----------");
