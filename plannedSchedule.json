@@ -1,19 +1,64 @@
 {
 	"tasks" : [
 			{
-				"Name" : "Task 1",
-				"Start Date" : "30/11/2018",
-				"End Date" : "15/12/2018",
+				"Name" : "Risk Matrix",
+				"Start Date" : "26/11/2018",
+				"End Date" : "02/12/2018",
 			},
 			{
-				"Name" : "Task 2",
-				"Start Date" : "15/12/2018",
-				"End Date" : "20/12/2018",
+				"Name" : "Member Contribution 1",
+				"Start Date" : "03/12/2018",
+				"End Date" : "09/12/2018",
 			},
 			{
-				"Name" : "Task 3",
-				"Start Date" : "4/12/2018",
-				"End Date" : "24/12/2018",
+				"Name" : "Member Contribution 2",
+				"Start Date" : "03/12/2018",
+				"End Date" : "09/12/2018",
+			},
+			{
+				"Name" : "Member Contribution 3",
+				"Start Date" : "03/12/2018",
+				"End Date" : "09/12/2018",
+			},
+			{
+				"Name" : "Project Schedule",
+				"Start Date" : "10/12/2018",
+				"End Date" : "16/12/2018",
+			},
+			{
+				"Name" : "Earned Value",
+				"Start Date" : "17/12/2018",
+				"End Date" : "21/12/2018",
+			},
+			{
+				"Name" : "Schedule Variance",
+				"Start Date" : "17/12/2018",
+				"End Date" : "21/12/2018",
+			},
+			{
+				"Name" : "Cost Variance",
+				"Start Date" : "17/12/2018",
+				"End Date" : "21/12/2018",
+			},
+			{
+				"Name" : "Running Prototype",
+				"Start Date" : "20/12/2018",
+				"End Date" : "21/12/2018",
+			},
+			{
+				"Name" : "Menu and Interface",
+				"Start Date" : "27/12/2018",
+				"End Date" : "02/01/2019",
+			},
+			{
+				"Name" : "Output",
+				"Start Date" : "27/12/2018",
+				"End Date" : "02/01/2019",
+			},
+			{
+				"Name" : "FinalVersiont",
+				"Start Date" : "03/01/2019",
+				"End Date" : "10/01/2019",
 			}
 			]
 
