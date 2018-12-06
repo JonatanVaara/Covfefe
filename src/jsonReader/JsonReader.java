@@ -74,10 +74,12 @@ public class JsonReader {
 		}
 		return memberList;
 	}
-	
-	//Task Reader
-	
-	public ArrayList<Task> taskReader() {
+
+	//------------------
+	//PLANNED SCHEDULE READER
+	//------------------
+
+	public ArrayList<Task> plannedScheduleReader() {
 
 		ArrayList<Task> taskList = new ArrayList<>();
 
@@ -96,9 +98,32 @@ public class JsonReader {
 			taskList.add(newTask);
 		}
 		return taskList;
-
 	}
 	
+	//------------------
+	//CURRENT SCHEDULE READER
+	//------------------
+	
+	public ArrayList<Task> currentScheduleReader() {
+
+		ArrayList<Task> taskList = new ArrayList<>();
+
+		String fileLocation = "currentSchedule.json";
+
+		JSONObject jsonObject = this.readJsonObject(fileLocation);
+		JSONArray tasks = (JSONArray) jsonObject.get("tasks");
+
+		Iterator<JSONObject> iterator = tasks.iterator();
+
+		while (iterator.hasNext()) {
+			JSONObject object = iterator.next();
+
+			Task newTask = new Task(object);
+
+			taskList.add(newTask);
+		}
+		return taskList;
+	}
 	
 	//------------------
 	//ACTUAL JSON READER
