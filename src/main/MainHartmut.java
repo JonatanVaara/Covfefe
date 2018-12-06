@@ -15,17 +15,18 @@ public class MainHartmut {
 	
 	public static String getOverviewMembersPlannedTime (ArrayList <Member> ListOfMembers)
 	{
-		String overview = "";
-		Set <Member> members = new HashSet<>();
-		Iterator<Member> iterator = members.iterator();
+		String overview = "";		
+		Iterator<Member> iterator = ListOfMembers.iterator();
 		    while (iterator.hasNext()) {
 		        Member member = iterator.next();
-		        overview += member.getName() + ": ";
-		        overview += member.getTotalTimePlanned() + " hours \n";
-		        if (!iterator.hasNext()) {
+		    	if (iterator.hasNext()) {
 		        	overview += member.getName() + ": ";
-		        	overview += member.getTotalTimePlanned() + " hours";		        
+		        	overview += member.getTotalTimePlanned() + " hours \n";		        
 		        	}
+		        else {
+		        	overview += member.getName() + ": ";
+			        overview += member.getTotalTimePlanned() + " hours";
+		        }
 		     }
 		return overview;    
 	}
@@ -33,16 +34,17 @@ public class MainHartmut {
 	public static String getOverviewMembersAllocatedTime (ArrayList <Member> ListOfMembers)
 	{
 		String overview = "";
-		Set <Member> members = new HashSet<>();
-		Iterator<Member> iterator = members.iterator();
+		Iterator<Member> iterator = ListOfMembers.iterator();
 		    while (iterator.hasNext()) {
 		        Member member = iterator.next();
-		        overview += member.getName() + ": ";
-		        overview += member.getTotalTimeAllocated() + " hours \n";
-		        if (!iterator.hasNext()) {
+		        if (iterator.hasNext()) {
 		        	overview += member.getName() + ": ";
-		        	overview += member.getTotalTimeAllocated() + " hours";		        
+		        	overview += member.getTotalTimeAllocated() + " hours \n";		        
 		        	}
+		        else {
+		        	overview += member.getName() + ": ";
+			        overview += member.getTotalTimeAllocated() + " hours";
+		        }
 		     }
 		return overview;
 	}
@@ -140,7 +142,9 @@ public static void main(String[] args) {
 
 		System.out.println("------------MEMBER PART-----------");
 
+		System.out.println(getOverviewMembersPlannedTime(memberList));
 		System.out.println(getOverviewMembersAllocatedTime(memberList));
+
 
 		System.out.println("--------------");
 		
