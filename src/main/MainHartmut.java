@@ -140,7 +140,7 @@ public static void main(String[] args) {
 
 		System.out.println("------------MEMBER PART-----------");
 
-		System.out.println(memberList);
+		System.out.println(getOverviewMembersAllocatedTime(memberList));
 
 		System.out.println("--------------");
 		
