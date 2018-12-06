@@ -75,9 +75,27 @@
 						"name" : "Samuel",
 						"salary" : 120,
 						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
-						"allocatedTaskTime" : {"TASK": {"DATE" : HOURS}}
-						
-					}
+						"allocatedTaskTime" : {
+						    "Planing": {
+						    "27/11/2018": 4,
+						    "29/11/2018": 3,
+                            "04/12/2018": 4
+                            },
+                            "Menu and Interface": {
+                                "03/12/2018" : 2,
+                                },
+                            "Earned Value": {
+                                "04/12/2018" : 1,
+                            },
+                            "Schedule Variance": {
+                                "04/12/2018" : 1,
+                            },
+                            "Cost Variance": {
+                                "04/12/2018" : 1
+                         }
+		           	}				
+                  	
+		   	}
 				]
 	
 				
