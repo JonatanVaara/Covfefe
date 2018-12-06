@@ -1,26 +1,31 @@
 package member;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Member {
 	
+	private String ID;
 	private String name;
 	private long salary;
-	private long ID;
 	private HashMap<String, Long> plannedTaskTime;
-	//private HashMap<String, Long> allocatedTaskTime;
+	private HashMap<String, Long> allocatedTaskTime;
 	
-	public Member(String name, long salary, long age, HashMap<String, Long> plannedTaskTime ) {
-		
+	public Member(String ID, String name, long salary, HashMap<String, Long> plannedTaskTime, HashMap<String, Long> allocatedTaskTime ) {
+	
+		this.ID = ID;
 		this.name = name;
 		this.salary = salary;
-		this.ID = age;
+		
 		
 		this.plannedTaskTime = plannedTaskTime;
-		//this.allocatedTaskTime = allocatedTaskTime;
+		this.allocatedTaskTime = allocatedTaskTime;
 		
 	}
 	
+	//-------------------
+	//getters & setters
+	//-------------------
 	
 	public String getName() {
 		return name;
@@ -42,32 +47,90 @@ public class Member {
 	}
 
 
-	public long getID() {
+	public String getID() {
 		return ID;
 	}
 
 
-	public void setID(long ID) {
+	public void setID(String ID) {
 		this.ID = ID;
 	}
 
-
-	public HashMap<String, Long> getPlannedTaskTime() {
-		return plannedTaskTime;
+	//-------------------
+	//plannedTimeFeatures
+	//-------------------
+	
+	public Set <String> getPlannedTasks (){
+		Set <String> tasks = plannedTaskTime.keySet();
+      	return tasks;
 	}
 
 
-	public void setPlannedTaskTime(HashMap<String, Long> plannedTaskTime) {
-		this.plannedTaskTime = plannedTaskTime;
+	public void setPlannedTaskTime(String task, long time) {
+		plannedTaskTime.put(name, time);
+	}
+	
+	public long getTotalTimePlanned ()
+	{
+		long sum = 0;
+		for(long value : plannedTaskTime.values())
+		{
+			sum += value;
+		}
+		return sum;
+	}
+	
+	public long getPlannedCosts (){
+		long totalCosts = getTotalTimePlanned()*this.salary;		
+		return totalCosts;
 	}
 
+	//-----------------
+	//allocatedFeatures
+	//-----------------
+	
+	public Set <String> getAllocatedTasks (){
+		Set <String> tasks = allocatedTaskTime.keySet();
+      	return tasks;
+	}
+
+
+	public void setAllocatedTaskTime(String task, long time) {
+		allocatedTaskTime.put(name, time);
+	}
+	
+	public long getTotalTimeAllocated ()
+	{
+		long sum = 0;
+		for(long value : allocatedTaskTime.values())
+		{
+			sum += value;
+		}
+		return sum;
+	}
+	
+	public long getAllocatedCosts (){
+		long totalCosts = getTotalTimeAllocated()*this.salary;		
+		return totalCosts;
+	}
+	
+	
+	//--------
+	//toString
+	//--------
 
 	public String toString() {
 	
-		String print = "\nMemeber information: \nName: " + this.getName() + "\nID: " + this.getID();
-		print += "\nSalary: " + this.getSalary() + "\n" + this.getPlannedTaskTime();
+		String print = "\nMember information: \nID: " + this.getID(); 
+		print+= "\nName: " + this.getName();
+		print += "\nSalary: " + this.getSalary() + " SEK\n";
+		print+= this.plannedTaskTime + "\n";
+		print+= this.allocatedTaskTime + "\n";
+		print+= "\n";
 		
 		return print;
 	}
 
+
 }
+

@@ -1,0 +1,86 @@
+{
+	"member" : [
+	
+					{ 	
+						"ID" : "M001",
+						"name" : "Alexander",
+						"salary" : 120,
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"allocatedTaskTime" : {
+							"Planning": { 
+								"27/11/2018": 4,
+								"29/11/2018": 3,
+                                "04/12/2018": 4
+                             },
+                             "Risk Matrix" : {
+                             	"24/11/2018" : 1
+                             },
+                             "Member Contribution 1" : {
+                             	"26/11/2018" : 2
+                             },
+                             "Member Contribution 2" : {
+                             	"27/11/2018" : 2
+                             },
+                             "Member Contribution 3" : {
+                             	"28/11/2018" : 2
+                             },
+                             "Project schedule" : {
+                             	"01/12/2018" : 1,
+                             	"02/12/2018" : 1
+						
+					},
+					{ 	
+						"ID" : "M002",
+						"name" : "Christian",
+						"salary" : 120,
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"allocatedTaskTime" : {"TASK": {"DATE" : HOURS}}
+						
+					},
+					{ 	
+						"ID" : "M003",
+						"name" : "Hartmut",
+						"salary" : 120,
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"allocatedTaskTime" : {
+							"Planning": {
+								"27/11/2018": 4,
+								"29/11/2018": 3,
+                                "04/12/2018": 4
+							},
+                            "Member Contribution 1": {
+                                "30/11/2018": 2,
+                                "02/12/2018": 2
+                            },
+                            "Member Contribution 2": {
+                                "01/12/2018": 1,
+                                "02/12/2018": 3
+                            },
+                            "Member Contribution 3": {
+                                "01/12/2018": 1,
+                                "02/12/2018": 1
+                            }
+						}						
+					},
+					{ 	
+						"ID" : "M004",
+						"name" : "Jonatan",
+						"salary" : 120,
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"allocatedTaskTime" : {"TASK": {"DATE" : HOURS}}
+						
+					},
+					{ 	
+						"ID" : "M005",
+						"name" : "Samuel",
+						"salary" : 120,
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"allocatedTaskTime" : {"TASK": {"DATE" : HOURS}}
+						
+					}
+				]
+	
+				
+}
+
+
