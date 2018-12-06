@@ -42,7 +42,7 @@ public class ProjectManagement {
 	public double getTotalTime() {
 		double totalTime = 0;
 		for(Member member : memberList) {
-			totalTime += member.getAllocatedTaskTime();
+			totalTime += 1;//member.getAllocatedTaskTime();
 		}
 		return totalTime;
 	}
@@ -50,7 +50,7 @@ public class ProjectManagement {
 	public double getBudgetAtCompletion() {
 		double budgetAtCompletion = 0;
 		for (Member member : memberList) {
-			budgetAtCompletion += member.getPlannedTaskTime()*member.getSalary();
+			budgetAtCompletion += 1;//member.getPlannedTaskTime()*member.getSalary();
 		}
 		return budgetAtCompletion;
 	}
