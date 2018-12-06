@@ -13,8 +13,10 @@ public class MainAlexander {
 		Schedule plannedSchedule = new Schedule(reader.plannedScheduleReader());
 		Schedule currentSchedule = new Schedule(reader.currentScheduleReader());
 
-		System.out.println(plannedSchedule.getTasks());
+		//System.out.println(plannedSchedule.getTasks());
 		
+		ProjectSchedule ps = new ProjectSchedule(plannedSchedule, currentSchedule);
+		ps.plotChart();
 	}
 
 }
