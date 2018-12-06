@@ -32,6 +32,9 @@ public class Task {
 		this.taskComplete = false;
 	}
 	
+	//------------------------
+	//---GETTERS AND SETTERS--
+	//------------------------
 	
 	public String getName() {
 		return name;
@@ -64,7 +67,5 @@ public class Task {
 	public void setCompletionTask(boolean completionTask) {
 		this.taskComplete = completionTask;
 	}
-	
-	
 
 }
