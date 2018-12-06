@@ -68,4 +68,14 @@ public class Task {
 		this.taskComplete = completionTask;
 	}
 
+	@Override
+	public String toString() {
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+		String print = ("Task: " + this.getName() + "\nStart Date: " + dateFormat.format(this.getStartDate())); 
+		print += ("\nEnd Date: " + dateFormat.format(this.getEndDate()) + "\n");
+		return print;
+	}
+	
 }

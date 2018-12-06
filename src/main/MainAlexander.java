@@ -13,6 +13,8 @@ public class MainAlexander {
 		Schedule plannedSchedule = new Schedule(reader.plannedScheduleReader());
 		Schedule currentSchedule = new Schedule(reader.currentScheduleReader());
 
+		System.out.println(plannedSchedule.getTasks());
+		
 	}
 
 }
