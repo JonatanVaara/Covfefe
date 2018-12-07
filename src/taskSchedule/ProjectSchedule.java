@@ -1,6 +1,7 @@
 package taskSchedule;
 
 import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -32,7 +33,9 @@ public class ProjectSchedule extends JFrame {
 
 		setContentPane(panel);
 
-		this.setSize(800, 400);
+		this.setSize(900, 500);
+		this.setLocationRelativeTo(null); 
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		// this.pack();
 		this.setVisible(true);
 	}
