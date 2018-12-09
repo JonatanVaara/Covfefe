@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class RiskMatrix {
 
 	private static final String NEW_LINE = System.lineSeparator();
-
 	private ArrayList<Risk> riskList;
 
 	public RiskMatrix(ArrayList<Risk> riskList) {

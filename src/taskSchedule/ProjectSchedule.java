@@ -23,22 +23,25 @@ public class ProjectSchedule extends JFrame {
 		this.currentSchedule = currentSchedule;
 	}
 	
-	public void plotChart() {
-
-		IntervalCategoryDataset dataset = createDataset();
-
-		JFreeChart chart = ChartFactory.createGanttChart("Project Schedule", "Tasks", "Timeline", dataset);
-
-		ChartPanel panel = new ChartPanel(chart);
-
-		setContentPane(panel);
-
-		this.setSize(900, 500);
-		this.setLocationRelativeTo(null); 
-		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		// this.pack();
-		this.setVisible(true);
-	}
+	
+	// Problem med GANT Chart - missing values to constructor
+	
+//	public void plotChart() {
+//
+//		IntervalCategoryDataset dataset = createDataset();
+//
+//		JFreeChart chart = ChartFactory.createGanttChart("Project Schedule", "Tasks", "Timeline", dataset);
+//
+//		ChartPanel panel = new ChartPanel(chart);
+//
+//		setContentPane(panel);
+//
+//		this.setSize(900, 500);
+//		this.setLocationRelativeTo(null); 
+//		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//		// this.pack();
+//		this.setVisible(true);
+//	}
 	
 	public IntervalCategoryDataset createDataset() {
 		

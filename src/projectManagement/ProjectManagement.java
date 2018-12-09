@@ -3,19 +3,20 @@ package projectManagement;
 import java.util.ArrayList;
 
 import member.Member;
+import member.MemberAdmin;
 import risk.RiskMatrix;
 import taskSchedule.Schedule;
 
 public class ProjectManagement {
 
-	private ArrayList<Member> memberList;
+	private MemberAdmin memberAdmin;
 	private Schedule plannedSchedule;
 	private Schedule currentSchedule;
 	private RiskMatrix riskMatrix;
 
 	public ProjectManagement() {
 
-		this.memberList = new ArrayList<Member>();
+		this.memberAdmin = new MemberAdmin();
 		this.plannedSchedule = new Schedule();
 		this.currentSchedule = new Schedule();
 		this.riskMatrix = new RiskMatrix();
@@ -29,9 +30,7 @@ public class ProjectManagement {
 
 	public double getScheduledVariance() {
 		double scheduledVariance = getEarnedValue() - 1;//plannedValue
-		
-		return scheduledVariance;
-				
+		return scheduledVariance;				
 	}
 	
 	public double getCostVariance() {
@@ -39,26 +38,31 @@ public class ProjectManagement {
 		return costVariance;
 	}
 	
-	public double getTotalTime() {
-		double totalTime = 0;
-		for(Member member : memberList) {
-			totalTime += 1;//member.getAllocatedTaskTime();
-		}
-		return totalTime;
+	public long getTotalTimePlanned() {
+		return memberAdmin.getTotalPlannedTime();
 	}
 	
-	public double getBudgetAtCompletion() {
-		double budgetAtCompletion = 0;
-		for (Member member : memberList) {
-			budgetAtCompletion += 1;//member.getPlannedTaskTime()*member.getSalary();
-		}
-		return budgetAtCompletion;
+	public long getTotalTimeAllocated() {
+		return memberAdmin.getTotalAllocatedTime();
 	}
 	
-	public double getActualCost() {
-		return 555.5;
+	public long getBudgetAtCompletion() {
+		return memberAdmin.getPlannedBudget();
 	}
 	
+	public long getActualCost() {
+		return memberAdmin.getActualCosts();
+	}
 	
+	public String getMemberPlannedTasks (String ID)
+	{
+		return memberAdmin.getMemberPlannedTasks(ID);	
+	}
+	
+	public long getMemberTimePlanned (String ID)
+	{
+		return memberAdmin.getMemberPlannedTime(ID);
+		
+	}
 	
 }

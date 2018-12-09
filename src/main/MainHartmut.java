@@ -7,124 +7,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import jsonReader.JsonReader;
-import member.Member;
-import risk.Risk;
-import risk.RiskMatrix;
+import member.*;
+import risk.*;
 
 public class MainHartmut {
 	
-	public static String getOverviewMembersPlannedTime (ArrayList <Member> ListOfMembers)
-	{
-		String overview = "";		
-		Iterator<Member> iterator = ListOfMembers.iterator();
-		    while (iterator.hasNext()) {
-		        Member member = iterator.next();
-		    	if (iterator.hasNext()) {
-		        	overview += member.getName() + ": ";
-		        	overview += member.getTotalTimePlanned() + " hours \n";		        
-		        	}
-		        else {
-		        	overview += member.getName() + ": ";
-			        overview += member.getTotalTimePlanned() + " hours";
-		        }
-		     }
-		return overview;    
-	}
-	
-	public static String getOverviewMembersAllocatedTime (ArrayList <Member> ListOfMembers)
-	{
-		String overview = "";
-		Iterator<Member> iterator = ListOfMembers.iterator();
-		    while (iterator.hasNext()) {
-		        Member member = iterator.next();
-		        if (iterator.hasNext()) {
-		        	overview += member.getName() + ": ";
-		        	overview += member.getTotalTimeAllocated() + " hours \n";		        
-		        	}
-		        else {
-		        	overview += member.getName() + ": ";
-			        overview += member.getTotalTimeAllocated() + " hours";
-		        }
-		     }
-		return overview;
-	}
-	
-	public static long getPlannedBudget (ArrayList <Member> ListOfMembers)
-	{
-		long sum = 0;
-		for (Member member : ListOfMembers)
-		{
-			sum += member.getPlannedCosts();
-		}
-		return sum;
-	}
-	
-	public static long getActualCosts (ArrayList <Member> ListOfMembers)
-	{
-		long sum = 0;
-		for (Member member : ListOfMembers)
-		{
-			sum += member.getAllocatedCosts();
-		}
-		return sum;
-	}
-	
-	public static Member retrieveMember (String ID, ArrayList <Member> ListOfMembers)
-	{
-		for (Member member : ListOfMembers) 
-		{
-			if(member.getID().equals(ID))
-				{return member;}
-		}
-		// TODO: Needs error handling
-		return null;
-	}
-	
-	public static String getMembersPlannedTasks (String ID, ArrayList <Member> ListOfMembers)
-	{	
-		Member chosenMember = retrieveMember(ID, ListOfMembers);
-		String taskList = chosenMember.getPlannedTasks().stream().collect(Collectors.joining("\n"));
-		return taskList;
-	}
-	
-	public static String getMembersAllocatedTasks (String ID, ArrayList <Member> ListOfMembers)
-	{	
-		Member chosenMember = retrieveMember(ID, ListOfMembers);
-		String taskList = chosenMember.getAllocatedTasks().stream().collect(Collectors.joining("\n"));
-		return taskList;
-	}
-	
-	public static long getTotalPlannedTime (ArrayList <Member> ListOfMembers)
-	{
-		long totalTime = 0;
-		for (Member member : ListOfMembers)
-		{
-			totalTime += member.getTotalTimePlanned();
-		}
-		return totalTime;
-	}
-	
-	public static long getTotalAllocatedTime (ArrayList <Member> ListOfMembers)
-	{
-		long totalTime = 0;
-		for (Member member : ListOfMembers)
-		{
-			totalTime += member.getTotalTimeAllocated();
-		}
-		return totalTime;
-	}
-	
-	public static long getMembersPlannedTime (String ID, ArrayList <Member> ListOfMembers)
-	{
-		Member chosenMember = retrieveMember(ID, ListOfMembers);
-		return chosenMember.getTotalTimePlanned();
-	}
-	
-	public static long getMembersAllocatedTime (String ID, ArrayList <Member> ListOfMembers)
-	{
-		Member chosenMember = retrieveMember(ID, ListOfMembers);
-		return chosenMember.getTotalTimeAllocated();
-	}
 	
 public static void main(String[] args) {
 		
@@ -141,24 +28,23 @@ public static void main(String[] args) {
 		//matrix.plotMatrix();
 
 		System.out.println("------------MEMBER PART-----------");
+		
+		MemberAdmin admin = new MemberAdmin(memberList);
 
-		System.out.println(getOverviewMembersPlannedTime(memberList));
-		System.out.println(getOverviewMembersAllocatedTime(memberList));
+		System.out.println(admin.getOverviewMembersPlannedTime());
+		System.out.println(admin.getOverviewMembersAllocatedTime());
 
 
 		System.out.println("--------------");
 		
-		System.out.println(getMembersPlannedTasks("M001", memberList));
+		System.out.println(admin.getMemberPlannedTasks("M001"));
 		
 		
 		System.out.println("--------------");
-		System.out.println("Planned budget: " + getPlannedBudget(memberList));
-		System.out.println("Actual costs: " + getActualCosts(memberList));
+		System.out.println("Planned budget: " + admin.getPlannedBudget());
+		System.out.println("Actual costs: " + admin.getActualCosts());
 
 		System.out.println("--------------");
-
-
-		
 		
 	}
 
