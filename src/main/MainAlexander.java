@@ -16,7 +16,7 @@ public class MainAlexander {
 		//System.out.println(plannedSchedule.getTasks());
 		
 		ProjectSchedule ps = new ProjectSchedule(plannedSchedule, currentSchedule);
-		// ps.plotChart();
+		ps.plotChart();
 	}
 
 }

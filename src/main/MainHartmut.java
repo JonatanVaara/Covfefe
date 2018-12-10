@@ -45,6 +45,7 @@ public static void main(String[] args) {
 		System.out.println("Actual costs: " + admin.getActualCosts());
 
 		System.out.println("--------------");
+		admin.getPlotMember();
 		
 	}
 

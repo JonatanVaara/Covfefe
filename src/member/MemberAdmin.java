@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.stream.Collectors;
 
+import org.jfree.chart.plot.Plot;
+
 public class MemberAdmin {
 	
 	ArrayList<Member> memberList;
@@ -171,10 +173,17 @@ public class MemberAdmin {
 		return chosenMember.getTotalTimeAllocated();
 	}
 	
+	
+	
+	
 	//-------------------------------------------
 	//Plot every member's time (planned) per task
 	//-------------------------------------------
 	
 	//TODO
 	
+	public void getPlotMember () {
+	MemberGraph plotMember = new MemberGraph(memberList);
+	plotMember.plotChart();
+	}
 }

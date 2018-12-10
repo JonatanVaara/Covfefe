@@ -1,6 +1,8 @@
 package member;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public class Member {
@@ -60,8 +62,8 @@ public class Member {
 	//plannedTimeFeatures
 	//-------------------
 	
-	public Set <String> getPlannedTasks (){
-		Set <String> tasks = plannedTaskTime.keySet();
+	public List <String> getPlannedTasks (){
+		List <String> tasks = new ArrayList <String> (plannedTaskTime.keySet());
       	return tasks;
 	}
 
@@ -89,8 +91,8 @@ public class Member {
 	//allocatedFeatures
 	//-----------------
 	
-	public Set <String> getAllocatedTasks (){
-		Set <String> tasks = allocatedTaskTime.keySet();
+	public List <String> getAllocatedTasks (){
+		List <String> tasks = new ArrayList <String> (allocatedTaskTime.keySet());
       	return tasks;
 	}
 
