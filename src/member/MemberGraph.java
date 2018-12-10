@@ -8,6 +8,7 @@ import javax.swing.WindowConstants;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -27,7 +28,7 @@ public class MemberGraph extends JFrame {
 		
 		CategoryDataset dataset = createDataset();
 
-		JFreeChart chart = ChartFactory.createBarChart("Members' Contribution", "Members", "Hours", dataset);
+		JFreeChart chart = ChartFactory.createBarChart("Members' Contribution", "Members", "Hours", dataset, PlotOrientation.VERTICAL, false, true, false);
 
 		ChartPanel panel = new ChartPanel(chart);
 
@@ -52,7 +53,7 @@ public CategoryDataset createDataset() {
     
     for (Member member : memberList)
     {
-    	dataset.addValue(member.getTotalTimeAllocated(), "false" , member.getName());
+    	dataset.setValue(member.getTotalTimeAllocated(), "" , member.getName());
     }	
 		
 		return dataset;
