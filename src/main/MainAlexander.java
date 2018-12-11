@@ -14,7 +14,7 @@ public class MainAlexander {
 		//System.out.println(plannedSchedule.getTasks());
 		
 		ProjectSchedule ps = new ProjectSchedule(reader.scheduleReader("plannedSchedule"), reader.scheduleReader("currentSchedule"));
-		//ps.plotChart();
+		ps.plotChart();
 		
 		Date date = new Date();
 		

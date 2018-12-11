@@ -58,7 +58,9 @@ public class ProjectSchedule extends JFrame {
 		
 		TaskSeries series2 = new TaskSeries("Current Schedule");
 		for (taskSchedule.Task task : this.currentSchedule.getTasks()) {
-			series2.add(new Task(task.getName(), task.getStartDate(), task.getEndDate()));
+			if (task.getStartDate() != null && task.getEndDate() != null) {
+				series2.add(new Task(task.getName(), task.getStartDate(), task.getEndDate()));
+			}
 		}
 		
 		TaskSeriesCollection dataset = new TaskSeriesCollection();

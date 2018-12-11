@@ -20,15 +20,21 @@ public class Task {
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
-		
 		try {
-			this.startDate = dateFormat.parse(startDate);
-			this.endDate = dateFormat.parse(endDate);
-		}catch(Exception e) {
+			if (startDate.contains("d")) {
+				this.startDate = null;
+			} else {
+				this.startDate = dateFormat.parse(startDate);
+			}
+
+			if (endDate.contains("d")) {
+				this.endDate = null;
+			} else {
+				this.endDate = dateFormat.parse(endDate);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		this.taskComplete = false;
 	}
 
 	//-------------------------------
@@ -37,8 +43,10 @@ public class Task {
 	
 	public boolean taskComplete (Date checkDate) {
 		
-		if(this.getEndDate().before(checkDate)) {
-			return true;
+		if (this.getStartDate() != null && this.getEndDate() != null) {
+			if (this.getEndDate().before(checkDate)) {
+				return true;
+			}
 		}
 		return false;
 	}
