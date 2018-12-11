@@ -18,7 +18,7 @@ public class ProjectManagement {
 	public ProjectManagement() {
 
 		this.memberAdmin = new MemberAdmin(reader.memberReader());
-		this.projectSchedule = new ProjectSchedule(reader.plannedScheduleReader(), reader.currentScheduleReader());
+		this.projectSchedule = new ProjectSchedule(reader.scheduleReader("currentSchedule"), scheduleReader("plannedSchedule"));
 		this.riskMatrix = new RiskMatrix(reader.riskReader());
 
 	}
