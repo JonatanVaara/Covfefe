@@ -75,37 +75,9 @@ public class JsonReader {
 		}
 		return memberList;
 	}
-
-	//------------------
-	//PLANNED SCHEDULE READER
-	//------------------
-	/*
-	public Schedule plannedScheduleReader() {
-
-		ArrayList<Task> taskList = new ArrayList<>();
-
-		String fileLocation = "plannedSchedule.json";
-
-		JSONObject jsonObject = this.readJsonObject(fileLocation);
-		JSONArray tasks = (JSONArray) jsonObject.get("tasks");
-
-		Iterator<JSONObject> iterator = tasks.iterator();
-
-		while (iterator.hasNext()) {
-			JSONObject object = iterator.next();
-
-			Task newTask = new Task(object);
-
-			taskList.add(newTask);
-		}
-		
-		Schedule plannedSchedule = new Schedule(taskList);
-		
-		return plannedSchedule;
-	}*/
 	
 	//------------------
-	//CURRENT SCHEDULE READER
+	//SCHEDULE READER
 	//------------------
 	
 	public Schedule scheduleReader(String fileName) {

@@ -10,7 +10,6 @@ public class Task {
 	private String name;
 	private Date startDate;
 	private Date endDate;
-	private boolean taskComplete;
 	
 	public Task(JSONObject task) {
 		
@@ -30,6 +29,18 @@ public class Task {
 		}
 		
 		this.taskComplete = false;
+	}
+
+	//-------------------------------
+	//---Check if task is completed--
+	//-------------------------------
+	
+	public boolean taskComplete (Date checkDate) {
+		
+		if(this.getEndDate().before(checkDate)) {
+			return true;
+		}
+		return false;
 	}
 	
 	//------------------------
@@ -58,14 +69,6 @@ public class Task {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-
-	public boolean isCompletionTask() {
-		return taskComplete;
-	}
-
-	public void setCompletionTask(boolean completionTask) {
-		this.taskComplete = completionTask;
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package taskSchedule;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
@@ -25,8 +28,9 @@ public class ProjectSchedule extends JFrame {
 		this.currentSchedule = currentSchedule;
 	}
 	
-	
-	// Problem med GANT Chart - missing values to constructor
+	//---------------------------
+	//Plot Ganttchart of schedule
+	//---------------------------
 	
 	public void plotChart() {
 
@@ -44,7 +48,7 @@ public class ProjectSchedule extends JFrame {
 		// this.pack();
 		this.setVisible(true);
 	}
-	
+
 	public IntervalCategoryDataset createDataset() {
 		
 		TaskSeries series1 = new TaskSeries("Planned Schedule");
@@ -63,5 +67,44 @@ public class ProjectSchedule extends JFrame {
 		
 		return dataset;
 	}
+	
+	//------------------------------------
+	//--Return list of completed tasks----
+	//-------From Current schedule--------
+	//------------------------------------
+	
+	public ArrayList<String> completedTasksCurrent (Date checkDate){
+	
+		return this.getCurrentSchedule().completedTasks(checkDate);
+	}
+	
+	//------------------------------------
+	//--Return list of completed tasks----
+	//-------From Current schedule--------
+	//------------------------------------
+	
+	public ArrayList<String> completedTasksPlanned (Date checkDate){
+		
+		return this.getPlannedSchedule().completedTasks(checkDate);
+	}
+	
+	//-------------------
+	//Getters and setters
+	//-------------------
+	
+	public Schedule getPlannedSchedule() {
+		return plannedSchedule;
+	}
 
+	public void setPlannedSchedule(Schedule plannedSchedule) {
+		this.plannedSchedule = plannedSchedule;
+	}
+
+	public Schedule getCurrentSchedule() {
+		return currentSchedule;
+	}
+
+	public void setCurrentSchedule(Schedule currentSchedule) {
+		this.currentSchedule = currentSchedule;
+	}
 }
