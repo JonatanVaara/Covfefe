@@ -180,8 +180,6 @@ public class MemberAdmin {
 	//Plot every member's time (planned) per task
 	//-------------------------------------------
 	
-	//TODO
-	
 	public void getPlotMember () {
 	MemberGraph plotMember = new MemberGraph(memberList);
 	plotMember.plotChart();
