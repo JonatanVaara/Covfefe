@@ -1,7 +1,7 @@
 package projectManagement;
 
 import java.util.ArrayList;
-
+import jsonReader.JsonReader;
 import member.Member;
 import member.MemberAdmin;
 import risk.RiskMatrix;
@@ -9,6 +9,7 @@ import taskSchedule.Schedule;
 
 public class ProjectManagement {
 
+	JsonReader reader = new JsonReader();
 	private MemberAdmin memberAdmin;
 	private Schedule plannedSchedule;
 	private Schedule currentSchedule;
@@ -16,10 +17,10 @@ public class ProjectManagement {
 
 	public ProjectManagement() {
 
-		this.memberAdmin = new MemberAdmin();
-		this.plannedSchedule = new Schedule();
-		this.currentSchedule = new Schedule();
-		this.riskMatrix = new RiskMatrix();
+		this.memberAdmin = new MemberAdmin(reader.memberReader());
+		this.plannedSchedule = new Schedule(reader.plannedScheduleReader());
+		this.currentSchedule = new Schedule(reader.currentScheduleReader());
+		this.riskMatrix = new RiskMatrix(reader.riskReader());
 
 	}
 
