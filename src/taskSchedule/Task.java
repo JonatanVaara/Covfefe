@@ -10,7 +10,6 @@ public class Task {
 	private String name;
 	private Date startDate;
 	private Date endDate;
-	private boolean taskComplete;
 	
 	public Task(JSONObject task) {
 		
@@ -21,15 +20,35 @@ public class Task {
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
-		
 		try {
-			this.startDate = dateFormat.parse(startDate);
-			this.endDate = dateFormat.parse(endDate);
-		}catch(Exception e) {
+			if (startDate.contains("d")) {
+				this.startDate = null;
+			} else {
+				this.startDate = dateFormat.parse(startDate);
+			}
+
+			if (endDate.contains("d")) {
+				this.endDate = null;
+			} else {
+				this.endDate = dateFormat.parse(endDate);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	//-------------------------------
+	//---Check if task is completed--
+	//-------------------------------
+	
+	public boolean taskComplete (Date checkDate) {
 		
-		this.taskComplete = false;
+		if (this.getStartDate() != null && this.getEndDate() != null) {
+			if (this.getEndDate().before(checkDate)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	//------------------------
@@ -58,14 +77,6 @@ public class Task {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-
-	public boolean isCompletionTask() {
-		return taskComplete;
-	}
-
-	public void setCompletionTask(boolean completionTask) {
-		this.taskComplete = completionTask;
 	}
 
 	@Override

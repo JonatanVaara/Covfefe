@@ -1,6 +1,7 @@
 package taskSchedule;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Schedule {
 	
@@ -20,6 +21,22 @@ public class Schedule {
 			}
 		}
 		return null;
+	}
+	
+	//------------------------------------
+	//--Return list of completed tasks----
+	//------------------------------------
+	
+	public ArrayList<String> completedTasks(Date checkDate){
+		
+		ArrayList<String> completedTasks = new ArrayList<>();
+		
+		for (Task task : this.getTasks()) {
+			if(task.taskComplete(checkDate)) {
+				completedTasks.add(task.getName());
+			}
+		}
+		return completedTasks;
 	}
 	
 	//-------------------------
