@@ -79,7 +79,7 @@ public class JsonReader {
 	//------------------
 	//PLANNED SCHEDULE READER
 	//------------------
-
+	/*
 	public Schedule plannedScheduleReader() {
 
 		ArrayList<Task> taskList = new ArrayList<>();
@@ -102,17 +102,17 @@ public class JsonReader {
 		Schedule plannedSchedule = new Schedule(taskList);
 		
 		return plannedSchedule;
-	}
+	}*/
 	
 	//------------------
 	//CURRENT SCHEDULE READER
 	//------------------
 	
-	public Schedule currentScheduleReader() {
+	public Schedule scheduleReader(String fileName) {
 
 		ArrayList<Task> taskList = new ArrayList<>();
 
-		String fileLocation = "currentSchedule.json";
+		String fileLocation = fileName + ".json";
 
 		JSONObject jsonObject = this.readJsonObject(fileLocation);
 		JSONArray tasks = (JSONArray) jsonObject.get("tasks");
@@ -127,8 +127,8 @@ public class JsonReader {
 			taskList.add(newTask);
 		}
 		
-		Schedule currentSchedule = new Schedule(taskList);
-		return currentSchedule;
+		Schedule schedule = new Schedule(taskList);
+		return schedule;
 	}
 	
 	//------------------
