@@ -2,6 +2,7 @@ package jsonReader;
 
 import risk.Risk;
 import risk.RiskMatrix;
+import taskSchedule.Schedule;
 import taskSchedule.Task;
 import member.Member;
 
@@ -79,7 +80,7 @@ public class JsonReader {
 	//PLANNED SCHEDULE READER
 	//------------------
 
-	public ArrayList<Task> plannedScheduleReader() {
+	public Schedule plannedScheduleReader() {
 
 		ArrayList<Task> taskList = new ArrayList<>();
 
@@ -97,14 +98,17 @@ public class JsonReader {
 
 			taskList.add(newTask);
 		}
-		return taskList;
+		
+		Schedule plannedSchedule = new Schedule(taskList);
+		
+		return plannedSchedule;
 	}
 	
 	//------------------
 	//CURRENT SCHEDULE READER
 	//------------------
 	
-	public ArrayList<Task> currentScheduleReader() {
+	public Schedule currentScheduleReader() {
 
 		ArrayList<Task> taskList = new ArrayList<>();
 
@@ -122,7 +126,9 @@ public class JsonReader {
 
 			taskList.add(newTask);
 		}
-		return taskList;
+		
+		Schedule currentSchedule = new Schedule(taskList);
+		return currentSchedule;
 	}
 	
 	//------------------
