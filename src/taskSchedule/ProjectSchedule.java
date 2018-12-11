@@ -16,6 +16,8 @@ public class ProjectSchedule extends JFrame {
 	private Schedule plannedSchedule;
 	private Schedule currentSchedule;
 	
+	private static final long serialVersionUID = 1L; 
+	
 	public ProjectSchedule(Schedule plannedSchedule, Schedule currentSchedule) {
 		super("Project Schedule");
 		

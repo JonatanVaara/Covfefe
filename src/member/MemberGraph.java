@@ -23,6 +23,8 @@ public class MemberGraph extends JFrame {
 		this.memberList = listOfMembers;
 	}
 	
+	private static final long serialVersionUID = 1L; 
+	
 	public void plotChart (){
 		
 		
