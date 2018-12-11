@@ -5,21 +5,20 @@ import jsonReader.JsonReader;
 import member.Member;
 import member.MemberAdmin;
 import risk.RiskMatrix;
+import taskSchedule.ProjectSchedule;
 import taskSchedule.Schedule;
 
 public class ProjectManagement {
 
 	JsonReader reader = new JsonReader();
 	private MemberAdmin memberAdmin;
-	private Schedule plannedSchedule;
-	private Schedule currentSchedule;
+	private ProjectSchedule projectSchedule;
 	private RiskMatrix riskMatrix;
 
 	public ProjectManagement() {
 
 		this.memberAdmin = new MemberAdmin(reader.memberReader());
-		this.plannedSchedule = new Schedule(reader.plannedScheduleReader());
-		this.currentSchedule = new Schedule(reader.currentScheduleReader());
+		this.projectSchedule = new ProjectSchedule(reader.plannedScheduleReader(), reader.currentScheduleReader());
 		this.riskMatrix = new RiskMatrix(reader.riskReader());
 
 	}
