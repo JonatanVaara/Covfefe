@@ -1,27 +1,22 @@
-{
-				
-				
-	"risk" : [
-	
-				{   "riskName" : "Failure",
-					"impact" : 6,
-					"probability" : 5
-				},
-				{   "riskName" : "Death",
-					"impact" : 10,
-					"probability" : 3
-				},
-				{   "riskName" : "Break down",
-					"impact" : 7,
-					"probability" : 6
-				},
-				{   "riskName" : "Late",
-					"impact" : 2,
-					"probability" : 8
-				}
-			]
-	
-				
-}
-
-
+[
+	{
+		"riskName" : "Failure",
+		"impact" : 6,
+		"probability" : 5
+	},
+	{
+		"riskName" : "Death",
+		"impact" : 10,
+		"probability" : 3
+	},
+	{
+		"riskName" : "Break down",
+		"impact" : 7,
+		"probability" : 6
+	},
+	{
+		"riskName" : "Late",
+		"impact" : 2,
+		"probability" : 8
+	}
+]

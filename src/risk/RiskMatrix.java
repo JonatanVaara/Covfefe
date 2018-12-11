@@ -8,20 +8,19 @@ public class RiskMatrix {
 	private ArrayList<Risk> riskList;
 
 	public RiskMatrix(ArrayList<Risk> riskList) {
-
 		this.riskList = riskList;
-
+	}
+	
+	public ArrayList<Risk> getRisks() {
+		return new ArrayList<>(this.riskList);
 	}
 
 	public String printRiskMatrix() {
 		String print = ("    Name    \t    Impact\t|    Probability\t|    Risk\t|" + NEW_LINE);
 		for (Risk risk : riskList) {
-			print += ("    " + risk.getRiskName() + "\t    " + risk.getImpact() + "\t\t|    " + risk.getProbability()
+			print += ("    " + risk.getName() + "\t    " + risk.getImpact() + "\t\t|    " + risk.getProbability()
 					+ "\t\t\t|    " + risk.risk() + "\t\t|" + NEW_LINE);
 		}
-
 		return print;
-
 	}
-
 }
