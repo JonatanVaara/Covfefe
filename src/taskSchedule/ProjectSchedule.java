@@ -82,7 +82,7 @@ public class ProjectSchedule extends JFrame {
 	
 	//------------------------------------
 	//--Return list of completed tasks----
-	//-------From Current schedule--------
+	//-------From Planned schedule--------
 	//------------------------------------
 	
 	public ArrayList<String> completedTasksPlanned (Date checkDate){

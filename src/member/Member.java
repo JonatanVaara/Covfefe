@@ -49,6 +49,10 @@ public class Member {
 	public void setID(String ID) {
 		this.ID = ID;
 	}
+	
+	public HashMap<String, Long> getPlannedTaskTime () {
+		return plannedTaskTime;
+	}
 
 	// -------------------
 	// plannedTimeFeatures
