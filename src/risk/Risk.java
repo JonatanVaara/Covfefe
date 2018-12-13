@@ -2,23 +2,22 @@ package risk;
 
 public class Risk {
 	
-	private String riskName;
+	private String name;
 	private long impact;
 	private long probability;
 	
-	public Risk(String riskName, long impact, long probability) {
-		
-		this.riskName = riskName;
+	public Risk(String name, long impact, long probability) {
+		this.name = name;
 		this.impact = impact;
 		this.probability = probability;
 	}
 
-	public String getRiskName() {
-		return riskName;
+	public String getName() {
+		return this.name;
 	}
 
-	public void setRiskName(String riskName) {
-		this.riskName = riskName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public long getImpact() {
@@ -38,14 +37,12 @@ public class Risk {
 	}
 	
 	public long risk() {
-		
 		return this.getImpact() * this.getProbability();
 	}
 	
 	@Override
 	public String toString() {
-		String print = "Risk: " + this.getRiskName() + "\nImpact: " + this.getImpact() + "\nProbability: " + this.getProbability() + "\n"; 
+		String print = "Risk: " + this.getName() + "\nImpact: " + this.getImpact() + "\nProbability: " + this.getProbability() + "\n"; 
 		return print;
 	}
-
 }

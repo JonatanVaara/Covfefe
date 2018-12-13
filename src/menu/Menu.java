@@ -1,7 +1,16 @@
 package menu;
 
+
 import java.net.MalformedURLException;
+
+import java.awt.Component;
+
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+
+import projectManagement.ProjectManagement;
+import risk.RiskPlot;
 
 public class Menu {
 
@@ -14,49 +23,49 @@ public class Menu {
 	private static final int PLOT_SCHEDULE = 7;
 	private static final int QUIT = 8;
 
-	// ProjectManagement PM
-	Scanner input;
+	private ProjectManagement projectManagement;
+	private Scanner input;
 
 	private Menu() {
 		input = new Scanner(System.in);
+		projectManagement = new ProjectManagement();
 	}
 
 	private void run()  {
 		int option;
-		// ProjectManagement PM = new ProjectManagement();
 		do {
 			printMenu();
 			System.out.println(" Enter your option: ");
 
 			option = input.nextInt();
 			input.nextLine();
-			System.out.println("");
 
+			System.out.println();
 			switch (option) {
+				case RISK_MATRIX:
+					printRiskMatrix();
+					break;
 
-			case RISK_MATRIX:
-				// printRiskMatrix();
-				break;
+				case EARND_VALUE:
+					// printEarndValue();
+					break;
 
-			case EARND_VALUE:
-				// printEarndValue();
-				break;
+				case SCHDULED_VARIENCE:
+					// printSchduledVarience();
+					break;
 
-			case SCHDULED_VARIENCE:
-				// printSchduledVarience();
-				break;
+				case COST_VARIENCE:
+					// printCostVarience();
+					break;
 
-			case COST_VARIENCE:
-				// printCostVarience();
-				break;
+				case TIME_SPENT:
+					// printTimeSpent();
+					break;
 
-			case TIME_SPENT:
-				// printTimeSpent();
-				break;
+				case ALL_TIME_SPENT:
+					// printAllTimeSpent();
+					break;
 
-			case ALL_TIME_SPENT:
-				// printAllTimeSpent();
-				break;
 
 			case PLOT_SCHEDULE:
 				// printPlotSchedule();
@@ -73,27 +82,42 @@ public class Menu {
 				break;
 
 			}
-
 		} while (option != QUIT);
-
 	}
 
 	private void printMenu() {
-
 		System.out.println(" 1. Risk Matrix");
 		System.out.println(" 2. Earned Value");
 		System.out.println(" 3. Schduled Varaince");
 		System.out.println(" 4. Cost Variance");
 		System.out.println(" 5. Time Spent");
 		System.out.println(" 6. All Time Spent");
-		System.out.println(" 7. plot Schedule");
+		System.out.println(" 7. Plot Schedule");
 		System.out.println(" 8. Quit");
 	}
-
-	public static void main(String[] arge) {
-		Menu menu = new Menu();
-		menu.run();
-
+	
+	public JFrame show(Component component) {
+		JFrame frame;
+		if (component != null) {
+			frame = new JFrame();
+			frame.getContentPane().add(component);
+			frame.pack();
+			frame.setLocationRelativeTo(null);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
+		} else {
+			frame = null;
+		}
+		return frame;
+	}
+	
+	private void printRiskMatrix() {
+		RiskPlot plot = new RiskPlot(projectManagement.getRiskMatrix());
+		show(plot.show(800, 600));
 	}
 
+	public static void main(String[] args) {
+		Menu menu = new Menu();
+		menu.run();
+	}
 }

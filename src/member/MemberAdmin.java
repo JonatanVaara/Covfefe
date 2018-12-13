@@ -173,8 +173,26 @@ public class MemberAdmin {
 		return chosenMember.getTotalTimeAllocated();
 	}
 	
+	//---------------------------
+	//--returns planned costs ---
+	//------of given tasked -----
+	//---------------------------
 	
-	
+	public long getPlannedCostsOfTask (ArrayList<String> taskListPlanned)
+	{
+		long totalCosts = 0;
+		
+		for (String task : taskListPlanned)
+		{
+		for (Member member : memberList)
+		{
+			if(member.getPlannedTaskTime().get(task) != null)
+			{totalCosts += member.getPlannedTaskTime().get(task) * member.getSalary();}
+			
+		}
+		}
+		return totalCosts;
+	}
 	
 	//-------------------------------------------
 	//Plot every member's time (planned) per task
