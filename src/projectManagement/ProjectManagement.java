@@ -23,6 +23,28 @@ public class ProjectManagement {
 		);
 		this.riskMatrix = new RiskMatrix(reader.riskReader());
 	}
+
+	//Check to see if a Task exist in Planned Schedule
+	public void checkTasks() {
+		
+		boolean taskExist = false;
+		
+		for (String name : this.projectSchedule.getAllTasksNamePlanned() ) {
+			taskExist = false;
+			for (String nameToCompare : this.projectSchedule.getAllTasksNameCurrent()) {
+				if(name.equals(nameToCompare)) {
+					taskExist = true;
+				}
+			}
+			if (taskExist == false) {
+				throw new RuntimeException("Current Schedule contain task, which does not exist in Planned Schedule" + name);
+			}
+		}
+	}
+	
+	// -------------------------
+	// --GETTERS AND SETTERS----
+	// -------------------------
 	
 	public RiskMatrix getRiskMatrix() {
 		return this.riskMatrix;

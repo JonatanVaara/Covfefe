@@ -80,6 +80,15 @@ public class ProjectSchedule extends JFrame {
 		return this.getCurrentSchedule().completedTasks(checkDate);
 	}
 	
+	// ------------------------------------
+	// -----Return list of all tasks-------
+	// -------From Current schedule--------
+	// ------------------------------------
+	
+	public ArrayList<String> getAllTasksNameCurrent() {
+
+		return this.getCurrentSchedule().getAllTasksName();
+	}
 	//------------------------------------
 	//--Return list of completed tasks----
 	//-------From Planned schedule--------
@@ -88,6 +97,16 @@ public class ProjectSchedule extends JFrame {
 	public ArrayList<String> completedTasksPlanned (Date checkDate){
 		
 		return this.getPlannedSchedule().completedTasks(checkDate);
+	}
+
+	// ------------------------------------
+	// -----Return list of all tasks-------
+	// -------From Planned schedule--------
+	// ------------------------------------
+	
+	public ArrayList<String> getAllTasksNamePlanned() {
+
+		return this.getPlannedSchedule().getAllTasksName();
 	}
 	
 	//-------------------
