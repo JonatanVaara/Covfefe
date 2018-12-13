@@ -1,5 +1,6 @@
 package menu;
 
+import java.net.MalformedURLException;
 import java.util.Scanner;
 
 public class Menu {
@@ -20,7 +21,7 @@ public class Menu {
 		input = new Scanner(System.in);
 	}
 
-	private void run() {
+	private void run()  {
 		int option;
 		// ProjectManagement PM = new ProjectManagement();
 		do {
@@ -62,7 +63,13 @@ public class Menu {
 				break;
 
 			case QUIT:
-				System.out.println(" Hej då!!");
+				try {
+				gifPlay.goodBye();
+				}
+				catch (MalformedURLException e) {
+					e.printStackTrace();
+				}
+				System.out.println("Good Bye");
 				break;
 
 			}
