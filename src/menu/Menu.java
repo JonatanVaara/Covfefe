@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 
 import projectManagement.ProjectManagement;
 import risk.RiskPlot;
+import projectManagement.LineChart;
 
 public class Menu {
 
@@ -47,15 +48,15 @@ public class Menu {
 					break;
 
 				case EARND_VALUE:
-					// printEarndValue();
+					projectManagement.printEVChart();
 					break;
 
 				case SCHDULED_VARIENCE:
-					// printSchduledVarience();
+					projectManagement.printSCChart();
 					break;
 
 				case COST_VARIENCE:
-					// printCostVarience();
+					projectManagement.printCVChart();
 					break;
 
 				case TIME_SPENT:
@@ -88,7 +89,7 @@ public class Menu {
 	private void printMenu() {
 		System.out.println(" 1. Risk Matrix");
 		System.out.println(" 2. Earned Value");
-		System.out.println(" 3. Schduled Varaince");
+		System.out.println(" 3. Scheduled Variance");
 		System.out.println(" 4. Cost Variance");
 		System.out.println(" 5. Time Spent");
 		System.out.println(" 6. All Time Spent");

@@ -14,6 +14,7 @@ public class ProjectManagement {
 	private MemberAdmin memberAdmin;
 	private ProjectSchedule projectSchedule;
 	private RiskMatrix riskMatrix;
+	
 
 	public ProjectManagement() {
 		this.memberAdmin = new MemberAdmin(reader.memberReader());
@@ -22,6 +23,7 @@ public class ProjectManagement {
 			reader.scheduleReader("plannedSchedule")
 		);
 		this.riskMatrix = new RiskMatrix(reader.riskReader());
+		
 	}
 	
 	public RiskMatrix getRiskMatrix() {
@@ -29,7 +31,7 @@ public class ProjectManagement {
 	}
 
 	//EV with current schedule
-	public long getEarnedValueCurrent(Date checkDate) {
+	public long getEarnedValue(Date checkDate) {
 		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
 		if(completedTasks.size() == 0)
 		{return 0;}
@@ -37,22 +39,64 @@ public class ProjectManagement {
 	}
 	
 	//EV with planned schedule
-		public long getEarnedValuePlanned(Date checkDate) {
-			ArrayList<String> completedTasks = projectSchedule.completedTasksPlanned(checkDate);
-			if(completedTasks.size() == 0)
-			{return 0;}
-			return memberAdmin.getPlannedCostsOfTask(completedTasks);
+		public long getScheduleVariance(Date checkDate) {
+			long SV = 0;
+			long plannedSpent;
+			ArrayList<String> plannedCompletedTasks = projectSchedule.completedTasksPlanned(checkDate);
+			if(plannedCompletedTasks.size() == 0)
+			{plannedSpent = 0;}
+			plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);
+			SV = this.getEarnedValue(checkDate)-plannedSpent;
+			return SV;
 		}
+		
+		
+		
 
 //	public long getScheduledVariance(Date checkDate) {
 //		long scheduledVariance = getEarnedValue(checkDate) - 1;// plannedValue
 //		return scheduledVariance;
 //	}
 //
-//	public long getCostVariance(Date checkDate) {
-//		long costVariance = getEarnedValue(checkDate) - 1;// getActualValue();
-//		return costVariance;
-//	}
+	public long getCostVariance(Date checkDate) {
+		long costVariance = getEarnedValue(checkDate) - 1;// getActualValue();
+		return costVariance;
+	}
+	
+	public void printEVChart() {
+		//Placeholder until we have functions to read proper dates
+		ArrayList<Date> dates = new ArrayList<Date>();
+		dates.add(new Date(06/12/2018));
+		dates.add(new Date(11/12/2018));
+		dates.add(new Date(13/12/2018));
+		
+		LineChart lineChart = new LineChart(dates, "Earned Value");
+		lineChart.plotChart();
+		
+	}
+	
+	public void printSCChart() {
+		//Placeholder until we have functions to read proper dates
+		ArrayList<Date> dates = new ArrayList<Date>();
+		dates.add(new Date(06/12/2018));
+		dates.add(new Date(11/12/2018));
+		dates.add(new Date(13/12/2018));
+		
+		LineChart lineChart = new LineChart(dates, "Schedule Variance");
+		lineChart.plotChart();
+	}
+	
+	public void printCVChart() {
+		//Placeholder until we have functions to read proper dates
+		ArrayList<Date> dates = new ArrayList<Date>();
+		dates.add(new Date(06/12/2018));
+		dates.add(new Date(11/12/2018));
+		dates.add(new Date(13/12/2018));
+		
+		LineChart lineChart = new LineChart(dates, "Cost Variance");
+		lineChart.plotChart();
+		
+	}
 
 	public long getTotalTimePlanned() {
 		return memberAdmin.getTotalPlannedTime();
