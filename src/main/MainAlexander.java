@@ -14,11 +14,11 @@ public class MainAlexander {
 
 		//System.out.println(plannedSchedule.getTasks());
 		
-		ProjectSchedule ps = new ProjectSchedule(reader.scheduleReader("plannedSchedule"), reader.scheduleReader("currentSchedule"));
+		//ProjectSchedule ps = new ProjectSchedule(reader.scheduleReader("plannedSchedule"), reader.scheduleReader("currentSchedule"));
 		//ps.plotChart();
 		
-		System.out.println(ps.getAllTasksNameCurrent());
-		System.out.println(ps.getAllTasksNamePlanned());
+		//System.out.println(ps.getAllTasksNameCurrent());
+		//System.out.println(ps.getAllTasksNamePlanned());
 		
 		/*Date date = new Date();
 		
@@ -26,6 +26,8 @@ public class MainAlexander {
 		System.out.println(ps.completedTasksPlanned(date));*/
 		
 		ProjectManagement pm = new ProjectManagement();
+		
+		pm.printSchedule();
 		
 		try {
 			pm.checkTasks();

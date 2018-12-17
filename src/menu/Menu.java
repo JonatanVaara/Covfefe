@@ -69,7 +69,7 @@ public class Menu {
 
 
 			case PLOT_SCHEDULE:
-				// printPlotSchedule();
+				this.projectManagement.printSchedule();
 				break;
 
 			case QUIT:

@@ -19,8 +19,8 @@ public class ProjectManagement {
 	public ProjectManagement() {
 		this.memberAdmin = new MemberAdmin(reader.memberReader());
 		this.projectSchedule = new ProjectSchedule(
-			reader.scheduleReader("currentSchedule"),
-			reader.scheduleReader("plannedSchedule")
+			reader.scheduleReader("plannedSchedule"),
+			reader.scheduleReader("currentSchedule")
 		);
 		this.riskMatrix = new RiskMatrix(reader.riskReader());
 		
@@ -42,6 +42,11 @@ public class ProjectManagement {
 				throw new RuntimeException("Current Schedule contain task, which does not exist in Planned Schedule" + name);
 			}
 		}
+	}
+	
+	//Forward plot/print Project Schedule
+	public void printSchedule() {
+		this.projectSchedule.plotChart();
 	}
 	
 	// -------------------------
@@ -142,5 +147,9 @@ public class ProjectManagement {
 
 	public long getMemberTimePlanned(String ID) {
 		return memberAdmin.getMemberPlannedTime(ID);
+	}
+	
+	public ProjectSchedule getProjectSchedule() {
+		return this.projectSchedule;
 	}
 }
