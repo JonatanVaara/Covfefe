@@ -1,5 +1,6 @@
 package member;
 
+import java.net.StandardSocketOptions;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -187,7 +188,8 @@ public class MemberAdmin {
 		for (Member member : memberList)
 		{
 			if(member.getPlannedTaskTime().get(task) != null)
-			{totalCosts += member.getPlannedTaskTime().get(task) * member.getSalary();}
+			{totalCosts += (member.getPlannedTaskTime().get(task) * member.getSalary());}
+			System.out.println(totalCosts);
 			
 		}
 		}

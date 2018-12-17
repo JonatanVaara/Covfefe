@@ -1,7 +1,9 @@
 package projectManagement;
 
-import java.sql.Date;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import jsonReader.JsonReader;
 import member.MemberAdmin;
@@ -10,6 +12,8 @@ import taskSchedule.ProjectSchedule;
 
 public class ProjectManagement {
 
+	
+	
 	private JsonReader reader = new JsonReader();
 	private MemberAdmin memberAdmin;
 	private ProjectSchedule projectSchedule;
@@ -55,8 +59,10 @@ public class ProjectManagement {
 	//EV with current schedule
 	public long getEarnedValue(Date checkDate) {
 		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
+		System.out.println(completedTasks.toString());
 		if(completedTasks.size() == 0)
 		{return 0;}
+		System.out.println(memberAdmin.getPlannedCostsOfTask(completedTasks));
 		return memberAdmin.getPlannedCostsOfTask(completedTasks);
 	}
 	
@@ -87,10 +93,21 @@ public class ProjectManagement {
 	
 	public void printEVChart() {
 		//Placeholder until we have functions to read proper dates
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy");
 		ArrayList<Date> dates = new ArrayList<Date>();
-		dates.add(new Date(06/12/2018));
-		dates.add(new Date(11/12/2018));
-		dates.add(new Date(13/12/2018));
+		Date singleDate = new Date();
+		Date testDate2 = new Date();
+		
+		try {
+			singleDate = dateFormat.parse("20/10/2018");
+			testDate2 = dateFormat.parse("16/12/2018");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		dates.add(singleDate);
+		dates.add(testDate2);
+		
 		
 		LineChart lineChart = new LineChart(dates, "Earned Value");
 		lineChart.plotChart();
@@ -100,6 +117,7 @@ public class ProjectManagement {
 	public void printSCChart() {
 		//Placeholder until we have functions to read proper dates
 		ArrayList<Date> dates = new ArrayList<Date>();
+		
 		dates.add(new Date(06/12/2018));
 		dates.add(new Date(11/12/2018));
 		dates.add(new Date(13/12/2018));

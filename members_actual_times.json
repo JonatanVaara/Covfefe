@@ -5,7 +5,7 @@
 						"ID" : "M001",
 						"name" : "Alexander",
 						"salary" : 120,
-						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" : 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
 						"allocatedTaskTime" : {
 							"Planning": { 
 								"27/11/2018": 4,
@@ -34,7 +34,7 @@
 						"ID" : "M002",
 						"name" : "Christian",
 						"salary" : 120,
-						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" : 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
 						"allocatedTaskTime" : {"TASK": {"DATE" : HOURS}}
 						
 					},
@@ -42,7 +42,7 @@
 						"ID" : "M003",
 						"name" : "Hartmut",
 						"salary" : 120,
-						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" : 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
 						"allocatedTaskTime" : {
 							"Planning": {
 								"27/11/2018": 4,
@@ -67,7 +67,7 @@
 						"ID" : "M004",
 						"name" : "Jonatan",
 						"salary" : 120,
-						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" : 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
 						"allocatedTaskTime" : {
 						"Planning": { 
 								"27/11/2018": 4,
@@ -98,7 +98,7 @@
 						"ID" : "M005",
 						"name" : "Samuel",
 						"salary" : 120,
-						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
+						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" : 5, "Member Contribution 1" : 5, "Member Contribution 2" : 4, "Member Contribution 3" : 4, "Project schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3}
 						"allocatedTaskTime" : {
 						    "Planing": {
 						    "27/11/2018": 4,
