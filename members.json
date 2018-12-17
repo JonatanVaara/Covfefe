@@ -8,7 +8,11 @@
 			"Building" : 4,
 			"Coding" : 2
 		}
-		"allocatedTaskTime" : {"Planning" : 0, "Building" : 3, "Coding" : 1}
+		"allocatedTaskTime" :{ "Planning": { 
+								"27/11/2018": 4,
+								"29/11/2018": 3,
+                                "04/12/2018": 4
+                             }}
 	},
 	{
 		"ID": "M002",
@@ -18,8 +22,11 @@
 			"Risk Matrix": 5
 		}
 		"allocatedTaskTime": {
-			"Risk Matrix": {
-			}
+			"Planning": { 
+								"27/11/2018": 4,
+								"29/11/2018": 3,
+                                "04/12/2018": 4
+                             }
 		}
 	},
 	{
@@ -27,6 +34,10 @@
 		"name" : "Cesar",
 		"salary" : 200,
 		"plannedTaskTime" : {"Planning" : 22, "Building" : 33, "Coding" : 51}
-		"allocatedTaskTime" : {"Planning" : 12, "Building" : 23}
+		"allocatedTaskTime" : {"Planning": { 
+								"27/11/2018": 4,
+								"29/11/2018": 3,
+                                "04/12/2018": 4
+                             }}
 	}
 ]
