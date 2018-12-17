@@ -3,7 +3,8 @@ package member;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+
+import org.json.simple.JSONObject;
 
 import taskSchedule.TaskData;
 
@@ -15,19 +16,56 @@ public class Member {
 	private HashMap<String, Long> plannedTaskTime;
 	private HashMap<String, TaskData> allocatedTaskTime;
 
-	public Member(String ID,String name,long salary) {
-		this.ID = ID;
-		this.name = name;
-		this.salary = salary;
+	private Member() {
 		this.plannedTaskTime = new HashMap<>();
 		this.allocatedTaskTime = new HashMap<>();
+	}
+
+	public static Member Create(JSONObject data) {
+		if (data == null) {
+			throw new NullPointerException();
+		}
+
+		Member member = new Member();
+		member.ID = (String)data.get("ID");
+		member.name = (String)data.get("name");
+		member.salary = (long)data.get("salary");
+		
+		Object tmpObject = data.get("plannedTaskTime");
+		if (tmpObject instanceof JSONObject) {
+			JSONObject plannedTaskData = (JSONObject)tmpObject;
+			for (Object key : plannedTaskData.keySet()) {
+				String taskName = (String)key;
+				long taskHours = (long)plannedTaskData.get(key);
+
+				member.plannedTaskTime.put(taskName, taskHours);
+			}
+		} else {
+			throw new RuntimeException("Expected a json object, got " + tmpObject.toString());
+		}
+
+		tmpObject = data.get("allocatedTaskTime");
+		if (tmpObject instanceof JSONObject) {
+			JSONObject allocatedTaskData = (JSONObject)tmpObject;
+			for (Object key : allocatedTaskData.keySet()) {
+				String taskName = (String)key;
+				JSONObject taskObject = (JSONObject)allocatedTaskData.get(key);
+
+				TaskData taskData = new TaskData(taskName, taskObject);
+				member.allocatedTaskTime.put(taskName, taskData);
+			}
+		} else {
+			throw new RuntimeException("Expected a json object, got " + tmpObject.toString());
+		}
+
+		return member;
 	}
 
 	// -------------------
 	// getters & setters
 	// -------------------
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -35,7 +73,7 @@ public class Member {
 	}
 
 	public long getSalary() {
-		return salary;
+		return this.salary;
 	}
 
 	public void setSalary(long salary) {
@@ -43,26 +81,26 @@ public class Member {
 	}
 
 	public String getID() {
-		return ID;
+		return this.ID;
 	}
 
 	public void setID(String ID) {
 		this.ID = ID;
 	}
-	
-	public HashMap<String, Long> getPlannedTaskTime () {
-		return plannedTaskTime;
+
+	public HashMap<String, Long> getPlannedTaskTime() {
+		return this.plannedTaskTime;
 	}
 
 	// -------------------
 	// plannedTimeFeatures
 	// -------------------
 	public List<String> getPlannedTasks() {
-		return new ArrayList<String>(plannedTaskTime.keySet());
+		return new ArrayList<String>(this.plannedTaskTime.keySet());
 	}
 
 	public void setPlannedTaskTime(String task, long time) {
-		plannedTaskTime.put(name, time);
+		this.plannedTaskTime.put(name, time);
 	}
 
 	public long getTotalTimePlanned() {
@@ -85,11 +123,11 @@ public class Member {
 		List<String> tasks = new ArrayList<String>(allocatedTaskTime.keySet());
 		return tasks;
 	}
-/*
-	public void setAllocatedTaskTime(String task, long time) {
-		allocatedTaskTime.put(name, time);
-	}
-*/
+
+	/*
+	 * public void setAllocatedTaskTime(String task, long time) {
+	 * allocatedTaskTime.put(name, time); }
+	 */
 	public long getTotalTimeAllocated() {
 		long sum = 0;
 		for (TaskData taskData : allocatedTaskTime.values()) {
@@ -108,7 +146,7 @@ public class Member {
 	// --------
 	public String toString() {
 		String print = "\nMember information: \nID: " + this.getID();
-		
+
 		print += "\nName: " + this.getName();
 		print += "\nSalary: " + this.getSalary() + " SEK\n";
 		print += this.plannedTaskTime + "\n";

@@ -63,17 +63,7 @@ public class JsonReader {
 		JSONArray memberArray = (JSONArray)object;
 		for (Object memberObject : memberArray) {
 			if (memberObject instanceof JSONObject) {
-				JSONObject memberData = (JSONObject)memberObject;
-
-				String ID = (String)memberData.get("ID");
-				String name = (String)memberData.get("name");
-				long salary = (long)memberData.get("salary");
-				
-				// TODO: read task data
-				// HashMap<String, Long> plannedTaskTime = (HashMap)memberData.get("plannedTaskTime");
-				// HashMap<String, Long> allocatedTaskTime = (HashMap)memberData.get("allocatedTaskTime");
-
-				Member member = new Member(ID, name, salary);
+				Member member = Member.Create((JSONObject)memberObject);
 				memberList.add(member);
 			} else {
 				throw new RuntimeException("Expected a json object, got " + memberObject.toString());
