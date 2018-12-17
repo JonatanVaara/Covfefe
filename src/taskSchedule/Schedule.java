@@ -43,6 +43,16 @@ public class Schedule {
 	//--GETTERS AND SETTERS----
 	//-------------------------
 	
+	public ArrayList<String> getAllTasksName(){
+		
+		ArrayList<String> allTasksName = new ArrayList<>();
+		
+		for (Task task : this.getTasks()) {
+			allTasksName.add(task.getName());
+		}
+		return allTasksName;
+	}
+	
 	public ArrayList<Task> getTasks() {
 		return tasks;
 	}
