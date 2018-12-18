@@ -47,7 +47,7 @@ public static void main(String[] args) {
 //		System.out.println("--------------");
 //		admin.getPlotMember();
 		
-		System.out.println(admin.getPlannedCostsOfTask("Planning"));
+		//System.out.println(admin.getPlannedCostsOfTask("Planning"));
 		
 	}
 
