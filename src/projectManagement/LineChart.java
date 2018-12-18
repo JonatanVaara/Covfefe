@@ -3,6 +3,7 @@ package projectManagement;
 import org.jfree.chart.ChartPanel;
 
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -18,10 +19,10 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class LineChart extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	ArrayList<Date> dateList;
+	ArrayList<LocalDate> dateList;
 	private String chartName;
 
-	public LineChart(ArrayList<Date> listOfDates, String chartName) {
+	public LineChart(ArrayList<LocalDate> listOfDates, String chartName) {
 		super("Date' Earned Value");
 
 		this.dateList = listOfDates;
@@ -71,16 +72,16 @@ public class LineChart extends JFrame {
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		ProjectManagement projectManagement = new ProjectManagement();
 		if (this.chartName == "Earned Value") {
-			for (Date date : dateList) {
+			for (LocalDate date : dateList) {
 				dataset.addValue(projectManagement.getEarnedValue(date), "Earned Value", date);
 			}
 		} else if (this.chartName == "Schedule Variance") {
-			for (Date date : dateList) {
+			for (LocalDate date : dateList) {
 				dataset.addValue(projectManagement.getScheduleVariance(date), "Schedule Variance", date);
 			}
 
 		} else {// Cost Variance
-			for (Date date : dateList) {
+			for (LocalDate date : dateList) {
 				dataset.addValue(projectManagement.getCostVariance(date), "Cost Variance", date);
 			}
 		}
