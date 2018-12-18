@@ -40,7 +40,7 @@ public class Task {
 	public boolean taskComplete (LocalDate checkDate) {
 		
 		if (this.getStartDate() != null && this.getEndDate() != null) {
-			if (this.getEndDate().isBefore(checkDate)) {
+			if (this.getEndDate().isBefore(checkDate)||this.getEndDate().isEqual(checkDate)) {
 				return true;
 			}
 		}

@@ -28,21 +28,21 @@
 			{
 				"Name" : "Earned Value",
 				"Start Date" : "11/12/2018",
-				"End Date" : "dd/mm/yyyy",
+				"End Date" : "18/12/2018",
 			},
 			{
 				"Name" : "Schedule Variance",
 				"Start Date" : "11/12/2018",
-				"End Date" : "dd/mm/yyyy",
+				"End Date" : "18/12/2018",
 			},
 			{
 				"Name" : "Cost Variance",
 				"Start Date" : "11/12/2018",
-				"End Date" : "dd/mm/yyyy",
+				"End Date" : "18/12/2018",
 			},
 			{
 				"Name" : "Running Prototype",
-				"Start Date" : "dd/mm/yyyy",
+				"Start Date" : "18/12/2018",
 				"End Date" : "dd/mm/yyyy",
 			},
 			{
