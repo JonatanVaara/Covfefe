@@ -191,6 +191,7 @@ public class MemberAdmin {
 		{
 			if(member.getPlannedTaskTime().get(task) != null)
 			{totalCosts += (member.getPlannedTaskTime().get(task) * member.getSalary());}
+			System.out.println(member.getName() + task);
 			System.out.println(totalCosts);
 			
 		}
