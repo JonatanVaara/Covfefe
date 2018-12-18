@@ -1,11 +1,12 @@
 package member;
 
-import java.net.StandardSocketOptions;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.stream.Collectors;
 
-import org.jfree.chart.plot.Plot;
 
 public class MemberAdmin {
 	
@@ -93,12 +94,13 @@ public class MemberAdmin {
 	//allocated Budget = actual costs (calculation in member)
 	//-------------------------------------	
 	
-	public long getActualCosts ()
+	public long getActualCosts (LocalDate checkDate)
 	{
+
 		long sum = 0;
 		for (Member member : memberList)
 		{
-			sum += member.getAllocatedCosts();
+			sum += member.getAllocatedCosts(checkDate);
 		}
 		return sum;
 	}

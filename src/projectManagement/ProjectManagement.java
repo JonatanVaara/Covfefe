@@ -2,6 +2,7 @@ package projectManagement;
 
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -62,7 +63,7 @@ public class ProjectManagement {
 	}
 
 	//EV with current schedule
-	public long getEarnedValue(Date checkDate) {
+	public long getEarnedValue(LocalDate checkDate) {
 		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
 		System.out.println(completedTasks.toString());
 		if(completedTasks.size() == 0)
@@ -72,27 +73,26 @@ public class ProjectManagement {
 	}
 	
 	//EV with planned schedule
-		public long getScheduleVariance(Date checkDate) {
+		public long getScheduleVariance(LocalDate checkDate) {
 			long SV = 0;
 			long plannedSpent;
 			ArrayList<String> plannedCompletedTasks = projectSchedule.completedTasksPlanned(checkDate);
 			if(plannedCompletedTasks.size() == 0)
 			{plannedSpent = 0;}
-			plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);
+			else{plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);}
 			SV = this.getEarnedValue(checkDate)-plannedSpent;
 			return SV;
 		}
 		
 		
+	public long getCostVariance(LocalDate checkDate) {
+		long costVariance = 0;
+		long earnedValue = 0;
+		long actualCost = 0;
 		
-
-//	public long getScheduledVariance(Date checkDate) {
-//		long scheduledVariance = getEarnedValue(checkDate) - 1;// plannedValue
-//		return scheduledVariance;
-//	}
-//
-	public long getCostVariance(Date checkDate) {
-		long costVariance = getEarnedValue(checkDate) - 1;// getActualValue();
+		earnedValue = getEarnedValue(checkDate);
+		actualCost = getActualCost(checkDate);
+		costVariance = earnedValue - actualCost;// getActualValue();
 		return costVariance;
 	}
 	
@@ -155,8 +155,8 @@ public class ProjectManagement {
 		return memberAdmin.getPlannedBudget();
 	}
 
-	public long getActualCost() {
-		return memberAdmin.getActualCosts();
+	public long getActualCost(LocalDate checkDate) {
+		return memberAdmin.getActualCosts(checkDate);
 	}
 
 	public String getMemberPlannedTasks(String ID) {

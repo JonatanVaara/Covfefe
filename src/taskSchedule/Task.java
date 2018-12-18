@@ -1,15 +1,15 @@
 package taskSchedule;
 
-import java.util.Date;
 import java.text.*;
+import java.time.LocalDate;
 
 import org.json.simple.JSONObject;
 
 public class Task {
 	
 	private String name;
-	private Date startDate;
-	private Date endDate;
+	private LocalDate startDate;
+	private LocalDate endDate;
 	
 	public Task(JSONObject task) {
 		
@@ -18,33 +18,29 @@ public class Task {
 		String startDate = (String) task.get("Start Date");
 		String endDate = (String) task.get("End Date");
 		
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
-		try {
-			if (startDate.contains("d")) {
-				this.startDate = null;
-			} else {
-				this.startDate = dateFormat.parse(startDate);
-			}
-
-			if (endDate.contains("d")) {
-				this.endDate = null;
-			} else {
-				this.endDate = dateFormat.parse(endDate);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		
+		if (startDate.contains("d")) {
+			this.startDate = null;
+		} else {
+			this.startDate = TaskData.getDateFromString(startDate);
 		}
+		if (endDate.contains("d")) {
+			this.endDate = null;
+		} else {
+			this.endDate = TaskData.getDateFromString(endDate);
+		}
+		
 	}
 
 	//-------------------------------
 	//---Check if task is completed--
 	//-------------------------------
 	
-	public boolean taskComplete (Date checkDate) {
+	public boolean taskComplete (LocalDate checkDate) {
 		
 		if (this.getStartDate() != null && this.getEndDate() != null) {
-			if (this.getEndDate().before(checkDate)) {
+			if (this.getEndDate().isBefore(checkDate)) {
 				return true;
 			}
 		}
@@ -63,19 +59,19 @@ public class Task {
 		this.name = name;
 	}
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 

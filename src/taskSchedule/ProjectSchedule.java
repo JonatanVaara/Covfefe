@@ -1,5 +1,7 @@
 package taskSchedule;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,13 +55,17 @@ public class ProjectSchedule extends JFrame {
 		
 		TaskSeries series1 = new TaskSeries("Planned Schedule");
 		for (taskSchedule.Task task : this.plannedSchedule.getTasks()) {
-			series1.add(new Task(task.getName(), task.getStartDate(), task.getEndDate()));
+			Date startDate = Date.from(task.getStartDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+			Date endDate = Date.from(task.getEndDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+			series1.add(new Task(task.getName(), startDate, endDate));
 		}
 		
 		TaskSeries series2 = new TaskSeries("Current Schedule");
 		for (taskSchedule.Task task : this.currentSchedule.getTasks()) {
 			if (task.getStartDate() != null && task.getEndDate() != null) {
-				series2.add(new Task(task.getName(), task.getStartDate(), task.getEndDate()));
+				Date startDate = Date.from(task.getStartDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+				Date endDate = Date.from(task.getEndDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+				series2.add(new Task(task.getName(), startDate, endDate));
 			}
 		}
 		
@@ -75,7 +81,7 @@ public class ProjectSchedule extends JFrame {
 	//-------From Current schedule--------
 	//------------------------------------
 	
-	public ArrayList<String> completedTasksCurrent (Date checkDate){
+	public ArrayList<String> completedTasksCurrent (LocalDate checkDate){
 	
 		return this.getCurrentSchedule().completedTasks(checkDate);
 	}
@@ -94,7 +100,7 @@ public class ProjectSchedule extends JFrame {
 	//-------From Planned schedule--------
 	//------------------------------------
 	
-	public ArrayList<String> completedTasksPlanned (Date checkDate){
+	public ArrayList<String> completedTasksPlanned (LocalDate checkDate){
 		
 		return this.getPlannedSchedule().completedTasks(checkDate);
 	}

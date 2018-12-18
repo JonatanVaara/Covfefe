@@ -1,5 +1,6 @@
 package member;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -123,23 +124,34 @@ public class Member {
 		List<String> tasks = new ArrayList<String>(allocatedTaskTime.keySet());
 		return tasks;
 	}
-
-	/*
-	 * public void setAllocatedTaskTime(String task, long time) {
-	 * allocatedTaskTime.put(name, time); }
-	 */
-	public long getTotalTimeAllocated() {
+	
+	public long getTotalTimeAllocated(LocalDate checkDate) {
 		long sum = 0;
 		for (TaskData taskData : allocatedTaskTime.values()) {
-			sum += taskData.getTotalHours();
+			sum += taskData.getTotalHours(checkDate);
 		}
 		return sum;
 	}
 
+	public long getAllocatedCosts(LocalDate checkDate) {
+		long totalCosts = getTotalTimeAllocated(checkDate) * this.salary;
+		return totalCosts;
+	}
+	
+	public long getTotalTimeAllocated() {
+		long sum = 0;
+		for (TaskData taskData : allocatedTaskTime.values()) {
+			sum += taskData.getTotalHoursTotal();
+		}
+		return sum;
+	}
+
+	/* 
 	public long getAllocatedCosts() {
 		long totalCosts = getTotalTimeAllocated() * this.salary;
 		return totalCosts;
 	}
+	*/
 
 	// --------
 	// toString

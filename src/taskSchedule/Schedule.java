@@ -1,5 +1,6 @@
 package taskSchedule;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -27,7 +28,7 @@ public class Schedule {
 	//--Return list of completed tasks----
 	//------------------------------------
 	
-	public ArrayList<String> completedTasks(Date checkDate){
+	public ArrayList<String> completedTasks(LocalDate checkDate){
 		
 		ArrayList<String> completedTasks = new ArrayList<>();
 		

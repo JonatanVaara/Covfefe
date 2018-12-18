@@ -42,10 +42,19 @@ public class TaskData {
 		return this.name;
 	}
 	
-	public long getTotalHours() {
+	public long getTotalHoursTotal() {
 		long totalHours = 0;
 		for (long hours : timeData.values()) {
 			totalHours += hours;
+		}
+		return totalHours;
+	}
+	
+	public long getTotalHours(LocalDate checkDate) {
+		long totalHours = 0;
+		for (HashMap.Entry<LocalDate, Long> entry : timeData.entrySet()) {
+			if(entry.getKey().isBefore(checkDate) || entry.getKey().isEqual(checkDate))
+		    {totalHours += entry.getValue();}
 		}
 		return totalHours;
 	}
