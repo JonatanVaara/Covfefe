@@ -30,6 +30,7 @@ public class Menu {
 	private Menu() {
 		input = new Scanner(System.in);
 		projectManagement = new ProjectManagement();
+		projectManagement.checkTasks(); // Checks to see that all tasks are the same, throws a runtime exception, ignores case
 	}
 
 	private void run()  {

@@ -117,6 +117,16 @@ public class MemberAdmin {
 		return taskList;
 	}
 	
+	public ArrayList<String> getAllMemberPlannedTasks(){
+		
+		ArrayList<String> listOfTasks = new ArrayList<>();
+		
+		for (Member member : memberList) {
+			listOfTasks.addAll(member.getPlannedTasks());
+		}
+		return listOfTasks;
+	}
+	
 	//---------------------------------
 	//List with allocated Tasks per member
 	//---------------------------------
@@ -126,6 +136,16 @@ public class MemberAdmin {
 		Member chosenMember = retrieveMember(ID);
 		String taskList = chosenMember.getAllocatedTasks().stream().collect(Collectors.joining("\n"));
 		return taskList;
+	}
+
+	public ArrayList<String> getAllMemberAllocatedTasks() {
+
+		ArrayList<String> listOfTasks = new ArrayList<>();
+
+		for (Member member : memberList) {
+			listOfTasks.addAll(member.getAllocatedTasks());
+		}
+		return listOfTasks;
 	}
 	
 	//------------------------------

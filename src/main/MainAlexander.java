@@ -29,13 +29,16 @@ public class MainAlexander {
 		
 		//pm.printSchedule();
 		
-		pm.getEarnedValue(date);
+		//pm.getEarnedValue(date);
 		
-		try {
-			pm.checkTasks();
-		}catch(Exception e) {
-			System.out.println(e);
-		}
+//		try {
+//			pm.checkTasks();
+//		}catch(Exception e) {
+//			System.out.println(e);
+//		}
+	
+		pm.checkTasks();
+		
 	}
 
 }
