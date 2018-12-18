@@ -10,11 +10,11 @@ public class MainAlexander {
 
 	public static void main(String[] args) {
 		
-		JsonReader reader = new JsonReader();
+		//JsonReader reader = new JsonReader();
 		
 		//System.out.println(plannedSchedule.getTasks());
 		
-		ProjectSchedule ps = new ProjectSchedule(reader.scheduleReader("plannedSchedule"), reader.scheduleReader("currentSchedule"));
+		//ProjectSchedule ps = new ProjectSchedule(reader.scheduleReader("plannedSchedule"), reader.scheduleReader("currentSchedule"));
 		//ps.plotChart();
 		
 		//System.out.println(ps.getAllTasksNameCurrent());
@@ -22,12 +22,14 @@ public class MainAlexander {
 		
 		LocalDate date = LocalDate.now();
 		
-		System.out.println(ps.completedTasksCurrent(date));
-		System.out.println(ps.completedTasksPlanned(date));
+		//System.out.println(ps.completedTasksCurrent(date));
+		//System.out.println(ps.completedTasksPlanned(date));
 		
 		ProjectManagement pm = new ProjectManagement();
 		
-		pm.printSchedule();
+		//pm.printSchedule();
+		
+		pm.getEarnedValue(date);
 		
 		try {
 			pm.checkTasks();
