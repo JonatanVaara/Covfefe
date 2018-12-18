@@ -59,9 +59,9 @@ public class ProjectManagement {
 	public long getEarnedValue(LocalDate checkDate) {
 		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
 
-		if(completedTasks.size() == 0)
-		{return 0;}
-	
+		if (completedTasks.size() == 0) {
+			return 0;
+		}
 
 		return memberAdmin.getPlannedCostsOfTask(completedTasks);
 	}
@@ -92,42 +92,51 @@ public class ProjectManagement {
 	}
 
 	public void printEVChart() {
-		// Placeholder until we have functions to read proper dates
+
 		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
 
 		LocalDate firstDate = getFirstEndDate("First Date");
 		LocalDate endDate = LocalDate.now();
 		System.out.println(endDate);
 		dates.add(firstDate);
-		while(firstDate.isBefore(endDate)) {
+		while (firstDate.isBefore(endDate)) {
 			firstDate = firstDate.plusDays(14);
-			dates.add(firstDate);	
+			dates.add(firstDate);
 		}
-		
 
 		LineChart lineChart = new LineChart(dates, "Earned Value");
 		lineChart.plotChart();
 
 	}
 
-	public void printSCChart() {
-		// Placeholder until we have functions to read proper dates
+	public void printSVChart() {
 		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
 
-		dates.add(TaskData.getDateFromString("06/12/2018"));
-		dates.add(TaskData.getDateFromString("11/12/2018"));
-		dates.add(TaskData.getDateFromString("13/12/2018"));
+		LocalDate firstDate = getFirstEndDate("First Date");
+		LocalDate endDate = LocalDate.now();
+		System.out.println(endDate);
+		dates.add(firstDate);
+		while (firstDate.isBefore(endDate)) {
+			firstDate = firstDate.plusDays(14);
+			dates.add(firstDate);
+		}
 
 		LineChart lineChart = new LineChart(dates, "Schedule Variance");
 		lineChart.plotChart();
 	}
 
 	public void printCVChart() {
-		// Placeholder until we have functions to read proper dates
+
 		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
-		dates.add(TaskData.getDateFromString("06/12/2018"));
-		dates.add(TaskData.getDateFromString("11/12/2018"));
-		dates.add(TaskData.getDateFromString("13/12/2018"));
+
+		LocalDate firstDate = getFirstEndDate("First Date");
+		LocalDate endDate = LocalDate.now();
+		System.out.println(endDate);
+		dates.add(firstDate);
+		while (firstDate.isBefore(endDate)) {
+			firstDate = firstDate.plusDays(14);
+			dates.add(firstDate);
+		}
 
 		LineChart lineChart = new LineChart(dates, "Cost Variance");
 		lineChart.plotChart();
@@ -149,12 +158,12 @@ public class ProjectManagement {
 		} else {
 			LocalDate endDate = null;
 			Schedule schedule = projectSchedule.getPlannedSchedule();
-			for(Task task : schedule.getTasks()) {
+			for (Task task : schedule.getTasks()) {
 				LocalDate date = task.getEndDate();
-				if(endDate == null || endDate.isBefore(date)) {
+				if (endDate == null || endDate.isBefore(date)) {
 					endDate = date;
 					returnDate = endDate;
-					
+
 				}
 			}
 		}

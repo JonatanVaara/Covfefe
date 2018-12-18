@@ -52,7 +52,7 @@ public class Menu {
 					break;
 
 				case SCHDULED_VARIENCE:
-					projectManagement.printSCChart();
+					projectManagement.printSVChart();
 					break;
 
 				case COST_VARIENCE:

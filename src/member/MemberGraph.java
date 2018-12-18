@@ -38,8 +38,6 @@ public class MemberGraph extends JFrame {
 
 		this.setSize(900, 500);
 		this.setLocationRelativeTo(null); 
-		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		// this.pack();
 		this.setVisible(true);
 	}
 	

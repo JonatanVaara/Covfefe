@@ -45,9 +45,7 @@ public class ProjectSchedule extends JFrame {
 		setContentPane(panel);
 
 		this.setSize(900, 500);
-		this.setLocationRelativeTo(null); 
-		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		// this.pack();
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
