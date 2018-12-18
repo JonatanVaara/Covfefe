@@ -51,10 +51,13 @@ public class TaskData {
 	}
 	
 	public long getTotalHours(LocalDate checkDate) {
+		checkDate.plusDays(1);
+		
 		long totalHours = 0;
 		for (HashMap.Entry<LocalDate, Long> entry : timeData.entrySet()) {
-			if(entry.getKey().isBefore(checkDate) || entry.getKey().isEqual(checkDate))
-		    {totalHours += entry.getValue();}
+			if (entry.getKey().isBefore(checkDate)) {
+				totalHours += entry.getValue();
+			}
 		}
 		return totalHours;
 	}
