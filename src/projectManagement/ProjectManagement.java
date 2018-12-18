@@ -66,7 +66,6 @@ public class ProjectManagement {
 	//EV with current schedule
 	public long getEarnedValue(LocalDate checkDate) {
 		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
-		System.out.println(completedTasks.toString());
 		if(completedTasks.size() == 0)
 		{return 0;}
 	
