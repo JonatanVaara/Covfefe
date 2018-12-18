@@ -1,5 +1,9 @@
 {
 	"tasks" : [
+			{	"Name" : "Planning",
+				"Start Date" : "20/11/2018",
+				"End Date" : "11/01/2019",
+			},
 			{
 				"Name" : "Risk Matrix",
 				"Start Date" : "26/11/2018",

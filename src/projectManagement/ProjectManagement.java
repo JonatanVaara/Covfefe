@@ -100,6 +100,7 @@ public class ProjectManagement {
 	public void printEVChart() {
 		//Placeholder until we have functions to read proper dates
 		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
+		
 		LocalDate singleDate = TaskData.getDateFromString("20/10/2018");
 		LocalDate testDate2 = TaskData.getDateFromString("16/12/2018");
 		
@@ -133,6 +134,13 @@ public class ProjectManagement {
 		
 		LineChart lineChart = new LineChart(dates, "Cost Variance");
 		lineChart.plotChart();
+		
+	}
+	
+	public LocalDate getFirstDate() {
+		LocalDate firstDate = 
+		
+		
 		
 	}
 

@@ -47,26 +47,7 @@ public class LineChart extends JFrame {
 		this.setVisible(true);
 	}
 
-//	public CategoryDataset createDataset() {
-//
-//		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-//		ProjectManagement projectManagement = new ProjectManagement();
-//		if (this.chartName == "Earned Value") {
-//			for (Date date : dateList) {
-//				dataset.setValue(projectManagement.getEarnedValue(date), date, "Earned Value");
-//			}
-//		} else if (this.chartName == "Schedule Variance") {
-//			for (Date date : dateList) {
-//				dataset.setValue(projectManagement.getScheduleVariance(date), date, "Schedule Variance");
-//			}
-//
-//		} else {// Cost Variance
-//			for (Date date : dateList) {
-//				dataset.setValue(projectManagement.getCostVariance(date), date, "Cost Variance");
-//			}
-//		}
-//		return dataset;
-//	}
+
 
 	public CategoryDataset createDataset() {
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
