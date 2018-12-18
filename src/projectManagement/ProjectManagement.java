@@ -10,6 +10,7 @@ import jsonReader.JsonReader;
 import member.MemberAdmin;
 import risk.RiskMatrix;
 import taskSchedule.ProjectSchedule;
+import taskSchedule.TaskData;
 
 public class ProjectManagement {
 
@@ -98,18 +99,10 @@ public class ProjectManagement {
 	
 	public void printEVChart() {
 		//Placeholder until we have functions to read proper dates
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy");
-		ArrayList<Date> dates = new ArrayList<Date>();
-		Date singleDate = new Date();
-		Date testDate2 = new Date();
+		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
+		LocalDate singleDate = TaskData.getDateFromString("20/10/2018");
+		LocalDate testDate2 = TaskData.getDateFromString("16/12/2018");
 		
-		try {
-			singleDate = dateFormat.parse("20/10/2018");
-			testDate2 = dateFormat.parse("16/12/2018");
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 		dates.add(singleDate);
 		dates.add(testDate2);
 		
@@ -121,11 +114,11 @@ public class ProjectManagement {
 	
 	public void printSCChart() {
 		//Placeholder until we have functions to read proper dates
-		ArrayList<Date> dates = new ArrayList<Date>();
+		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
 		
-		dates.add(new Date(06/12/2018));
-		dates.add(new Date(11/12/2018));
-		dates.add(new Date(13/12/2018));
+		dates.add(TaskData.getDateFromString("06/12/2018"));
+		dates.add(TaskData.getDateFromString("11/12/2018"));
+		dates.add(TaskData.getDateFromString("13/12/2018"));
 		
 		LineChart lineChart = new LineChart(dates, "Schedule Variance");
 		lineChart.plotChart();
@@ -133,10 +126,10 @@ public class ProjectManagement {
 	
 	public void printCVChart() {
 		//Placeholder until we have functions to read proper dates
-		ArrayList<Date> dates = new ArrayList<Date>();
-		dates.add(new Date(06/12/2018));
-		dates.add(new Date(11/12/2018));
-		dates.add(new Date(13/12/2018));
+		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
+		dates.add(TaskData.getDateFromString("06/12/2018"));
+		dates.add(TaskData.getDateFromString("11/12/2018"));
+		dates.add(TaskData.getDateFromString("13/12/2018"));
 		
 		LineChart lineChart = new LineChart(dates, "Cost Variance");
 		lineChart.plotChart();
