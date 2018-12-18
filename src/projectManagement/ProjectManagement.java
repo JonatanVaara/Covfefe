@@ -2,7 +2,6 @@ package projectManagement;
 
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,8 +23,8 @@ public class ProjectManagement {
 	public ProjectManagement() {
 		this.memberAdmin = new MemberAdmin(reader.memberReader());
 		this.projectSchedule = new ProjectSchedule(
-			reader.scheduleReader("plannedSchedule"),
-			reader.scheduleReader("currentSchedule")
+			reader.scheduleReader("currentSchedule"),
+			reader.scheduleReader("plannedSchedule")
 		);
 		this.riskMatrix = new RiskMatrix(reader.riskReader());
 		
@@ -49,11 +48,6 @@ public class ProjectManagement {
 		}
 	}
 	
-	//Forward plot/print Project Schedule
-	public void printSchedule() {
-		this.projectSchedule.plotChart();
-	}
-	
 	// -------------------------
 	// --GETTERS AND SETTERS----
 	// -------------------------
@@ -63,9 +57,9 @@ public class ProjectManagement {
 	}
 
 	//EV with current schedule
-	public long getEarnedValue(LocalDate checkDate) {
+	public long getEarnedValue(Date checkDate) {
 		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
-		System.out.println(completedTasks.toString());
+		
 		if(completedTasks.size() == 0)
 		{return 0;}
 		System.out.println(memberAdmin.getPlannedCostsOfTask(completedTasks));
@@ -73,26 +67,27 @@ public class ProjectManagement {
 	}
 	
 	//EV with planned schedule
-		public long getScheduleVariance(LocalDate checkDate) {
+		public long getScheduleVariance(Date checkDate) {
 			long SV = 0;
 			long plannedSpent;
 			ArrayList<String> plannedCompletedTasks = projectSchedule.completedTasksPlanned(checkDate);
 			if(plannedCompletedTasks.size() == 0)
 			{plannedSpent = 0;}
-			else{plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);}
+			plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);
 			SV = this.getEarnedValue(checkDate)-plannedSpent;
 			return SV;
 		}
 		
 		
-	public long getCostVariance(LocalDate checkDate) {
-		long costVariance = 0;
-		long earnedValue = 0;
-		long actualCost = 0;
 		
-		earnedValue = getEarnedValue(checkDate);
-		actualCost = getActualCost(checkDate);
-		costVariance = earnedValue - actualCost;// getActualValue();
+
+//	public long getScheduledVariance(Date checkDate) {
+//		long scheduledVariance = getEarnedValue(checkDate) - 1;// plannedValue
+//		return scheduledVariance;
+//	}
+//
+	public long getCostVariance(Date checkDate) {
+		long costVariance = getEarnedValue(checkDate) - 1;// getActualValue();
 		return costVariance;
 	}
 	
@@ -155,8 +150,8 @@ public class ProjectManagement {
 		return memberAdmin.getPlannedBudget();
 	}
 
-	public long getActualCost(LocalDate checkDate) {
-		return memberAdmin.getActualCosts(checkDate);
+	public long getActualCost() {
+		return memberAdmin.getActualCosts();
 	}
 
 	public String getMemberPlannedTasks(String ID) {
@@ -165,9 +160,5 @@ public class ProjectManagement {
 
 	public long getMemberTimePlanned(String ID) {
 		return memberAdmin.getMemberPlannedTime(ID);
-	}
-	
-	public ProjectSchedule getProjectSchedule() {
-		return this.projectSchedule;
 	}
 }
