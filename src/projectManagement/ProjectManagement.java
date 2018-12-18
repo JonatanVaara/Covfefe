@@ -69,7 +69,7 @@ public class ProjectManagement {
 		System.out.println(completedTasks.toString());
 		if(completedTasks.size() == 0)
 		{return 0;}
-		System.out.println(memberAdmin.getPlannedCostsOfTask(completedTasks));
+	
 		return memberAdmin.getPlannedCostsOfTask(completedTasks);
 	}
 	
