@@ -64,7 +64,7 @@ public class Menu {
 					break;
 
 				case ALL_TIME_SPENT:
-					// printAllTimeSpent();
+					projectManagement.getMemberContribution();
 					break;
 
 

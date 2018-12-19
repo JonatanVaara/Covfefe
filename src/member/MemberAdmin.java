@@ -201,8 +201,8 @@ public class MemberAdmin {
 	//Plot every member's time (planned) per task
 	//-------------------------------------------
 	
-	public void getPlotMember () {
-	MemberGraph plotMember = new MemberGraph(memberList);
-	plotMember.plotChart();
+	public void getPlotMemberContribution() {
+	MemberGraph plotMemberContribution = new MemberGraph(memberList);
+	plotMemberContribution.plotChart();
 	}
 }

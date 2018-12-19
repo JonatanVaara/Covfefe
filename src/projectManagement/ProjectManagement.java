@@ -170,6 +170,10 @@ public class ProjectManagement {
 
 		return returnDate;
 	}
+	public void getMemberContribution() {
+		memberAdmin.getPlotMemberContribution();
+	}
+	
 
 	public long getTotalTimePlanned() {
 		return memberAdmin.getTotalPlannedTime();
