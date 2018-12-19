@@ -23,21 +23,34 @@ public class ProjectManagement {
 
 	}
 
-	// Check to see if a Task exist in Planned Schedule
+	// ---------------------------------
+	// --Check if Tasks are the same----
+	// --------in all json-files--------
+	// ---------------------------------
+	
 	public void checkTasks() {
+		
+		ArrayList<String> referenceList = this.projectSchedule.getAllTasksNamePlanned();
+		
+		this.checkTasksToList(referenceList, this.projectSchedule.getAllTasksNameCurrent());
+		this.checkTasksToList(referenceList, this.memberAdmin.getAllMemberAllocatedTasks());
+		this.checkTasksToList(referenceList, this.memberAdmin.getAllMemberPlannedTasks());
+	}
+	
+	public void checkTasksToList(ArrayList<String> referenceList, ArrayList<String> listToCheck) {
 
 		boolean taskExist = false;
-
-		for (String name : this.projectSchedule.getAllTasksNamePlanned()) {
+		
+		for (String name : listToCheck) {
 			taskExist = false;
-			for (String nameToCompare : this.projectSchedule.getAllTasksNameCurrent()) {
-				if (name.equals(nameToCompare)) {
+			for (String referenceName : referenceList) {
+				if(name.equalsIgnoreCase(referenceName)) {
 					taskExist = true;
 				}
 			}
 			if (taskExist == false) {
 				throw new RuntimeException(
-						"Current Schedule contain task, which does not exist in Planned Schedule" + name);
+						"Task " + name + " does not exist in Planned Schedule");
 			}
 		}
 	}
