@@ -17,6 +17,16 @@ import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JMenu;
+import javax.swing.JTextField;
+import javax.swing.JTree;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.Font;
 
 public class MenuUI {
 
@@ -24,12 +34,12 @@ public class MenuUI {
 	private ProjectManagement pm = new ProjectManagement();
 	private JFrame frame;
 	private JLabel lblTopIcon;
-	
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -57,21 +67,25 @@ public class MenuUI {
 		frame.setBounds(100, 100, 1054, 641);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		JLabel lblTopIcon = new JLabel(new ImageIcon("C:\\Users\\JonatanVaara\\Documents\\GitHub\\Covfefe\\coolMenu.png"));
+
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(frame.getContentPane(), popupMenu);
+
+		JLabel lblTopIcon = new JLabel(
+				new ImageIcon("C:\\Users\\JonatanVaara\\Documents\\GitHub\\Covfefe\\coolMenu.png"));
 		lblTopIcon.setBounds(0, 0, 1032, 136);
-		//frame.add(new JLabel(new ImageIcon("")));
+		// frame.add(new JLabel(new ImageIcon("")));
 		frame.getContentPane().add(lblTopIcon);
-		
+
 		JButton btnRiskMatrix = new JButton("Risk Matrix");
 		btnRiskMatrix.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			menu.printRiskMatrix();
+				menu.printRiskMatrix();
 			}
 		});
-		btnRiskMatrix.setBounds(29, 177, 115, 29);
+		btnRiskMatrix.setBounds(15, 397, 115, 29);
 		frame.getContentPane().add(btnRiskMatrix);
-		
+
 		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			@Override
@@ -88,66 +102,104 @@ public class MenuUI {
 //					// TODO Auto-generated catch block
 //					e2.printStackTrace();
 //				}
-				
-				System.exit(0);	
+
+				System.exit(0);
 			}
 		});
 		btnClose.setBounds(902, 540, 115, 29);
 		frame.getContentPane().add(btnClose);
-		
+
 		JButton btnEarnedValue = new JButton("Earned Value");
 		btnEarnedValue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pm.printEVChart();
 			}
 		});
-		btnEarnedValue.setBounds(179, 177, 157, 29);
+		btnEarnedValue.setBounds(15, 452, 157, 29);
 		frame.getContentPane().add(btnEarnedValue);
-		
+
 		JButton btnScheduleVariance = new JButton("Schedule Variance");
 		btnScheduleVariance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pm.printSVChart();
 			}
 		});
-		btnScheduleVariance.setBounds(373, 177, 180, 29);
+		btnScheduleVariance.setBounds(217, 452, 180, 29);
 		frame.getContentPane().add(btnScheduleVariance);
-		
+
 		JButton btnCostVariance = new JButton("Cost Variance");
 		btnCostVariance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pm.printCVChart();
 			}
 		});
-		btnCostVariance.setBounds(373, 236, 180, 29);
+		btnCostVariance.setBounds(460, 452, 180, 29);
 		frame.getContentPane().add(btnCostVariance);
-		
+
 		JButton btnTimespent = new JButton("Time Spent");
 		btnTimespent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Not yet implemented");
+				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
+				JOptionPane.showMessageDialog(null, "User: " + ID + " has so far spent " + pm.getMemberTimeAllocated(ID) + " hours on this project");
 			}
 		});
+
 		btnTimespent.setBounds(600, 177, 157, 29);
 		frame.getContentPane().add(btnTimespent);
-		
+
 		JButton btnAllTimeSpent = new JButton("All Time Spent");
 		btnAllTimeSpent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pm.getMemberContribution();
 			}
 		});
-		btnAllTimeSpent.setBounds(600, 236, 157, 29);
+		btnAllTimeSpent.setBounds(15, 522, 157, 29);
 		frame.getContentPane().add(btnAllTimeSpent);
-		
+
 		JButton btnPlotSchedule = new JButton("Plot Schedule");
 		btnPlotSchedule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pm.printSchedule();
 			}
 		});
-		btnPlotSchedule.setBounds(803, 177, 143, 29);
+		btnPlotSchedule.setBounds(217, 522, 143, 29);
 		frame.getContentPane().add(btnPlotSchedule);
+
+		JButton btnTaskParticipation = new JButton("Task Participation");
+		btnTaskParticipation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
+				JOptionPane.showMessageDialog(null, "User: " + ID + " has so far worked on these tasks: \n" + pm.getMemberAllocatedTasks(ID));
+
+			}
+		});
+		btnTaskParticipation.setBounds(600, 236, 157, 29);
+		frame.getContentPane().add(btnTaskParticipation);
+		
+		JLabel lblCharts = new JLabel("Charts");
+		lblCharts.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblCharts.setBounds(15, 335, 163, 46);
+		frame.getContentPane().add(lblCharts);
+
 	}
 
+	private static void addPopup(Component component, final JPopupMenu popup) {
+		component.addMouseListener(new MouseAdapter() {
+			public void mousePressed(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+
+			public void mouseReleased(MouseEvent e) {
+				if (e.isPopupTrigger()) {
+					showMenu(e);
+				}
+			}
+
+			private void showMenu(MouseEvent e) {
+				popup.show(e.getComponent(), e.getX(), e.getY());
+			}
+		});
+	}
 }

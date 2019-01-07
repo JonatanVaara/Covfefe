@@ -110,7 +110,7 @@ public class ProjectManagement {
 
 		LocalDate firstDate = getFirstEndDate("First Date");
 		LocalDate endDate = LocalDate.now();
-		System.out.println(endDate);
+		
 		dates.add(firstDate);
 		while (firstDate.isBefore(endDate)) {
 			firstDate = firstDate.plusDays(14);
@@ -127,7 +127,7 @@ public class ProjectManagement {
 
 		LocalDate firstDate = getFirstEndDate("First Date");
 		LocalDate endDate = LocalDate.now();
-		System.out.println(endDate);
+		
 		dates.add(firstDate);
 		while (firstDate.isBefore(endDate)) {
 			firstDate = firstDate.plusDays(14);
@@ -144,7 +144,7 @@ public class ProjectManagement {
 
 		LocalDate firstDate = getFirstEndDate("First Date");
 		LocalDate endDate = LocalDate.now();
-		System.out.println(endDate);
+		
 		dates.add(firstDate);
 		while (firstDate.isBefore(endDate)) {
 			firstDate = firstDate.plusDays(14);
