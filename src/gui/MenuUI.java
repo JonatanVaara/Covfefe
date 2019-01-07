@@ -74,8 +74,8 @@ public class MenuUI {
 		addPopup(frame.getContentPane(), popupMenu);
 
 		JLabel lblTopIcon = new JLabel(
-				new ImageIcon("coolMenu.png"));
-		lblTopIcon.setBounds(0, 0, 1032, 136);
+				new ImageIcon("TopTitel3.png"));
+		lblTopIcon.setBounds(0, 0, 1000, 120);
 		// frame.add(new JLabel(new ImageIcon("")));
 		frame.getContentPane().add(lblTopIcon);
 
