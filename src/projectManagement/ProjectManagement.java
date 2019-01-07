@@ -204,8 +204,12 @@ public class ProjectManagement {
 		return memberAdmin.getActualCosts(checkDate);
 	}
 
-	public String getMemberPlannedTasks(String ID) {
-		return memberAdmin.getMemberPlannedTasks(ID);
+//	public String getMemberPlannedTasks(String ID) {
+//		return memberAdmin.getMemberPlannedTasks(ID);
+//	}
+	
+	public String getMemberAllocatedTasks(String ID) {
+		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
 
 	public long getMemberTimePlanned(String ID) {
