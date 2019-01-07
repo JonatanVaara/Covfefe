@@ -1,5 +1,6 @@
 package projectManagement;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -208,7 +209,7 @@ public class ProjectManagement {
 //		return memberAdmin.getMemberPlannedTasks(ID);
 //	}
 	
-	public String getMemberAllocatedTasks(String ID) {
+	public String getMemberAllocatedTasks(String ID) throws IOException{
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
 
@@ -216,7 +217,7 @@ public class ProjectManagement {
 //		return memberAdmin.getMemberPlannedTime(ID);
 //	}
 
-	public long getMemberTimeAllocated(String ID) {
+	public long getMemberTimeAllocated(String ID) throws IOException {
 		return memberAdmin.getMemberAllocatedTime(ID);
 	}
 	
