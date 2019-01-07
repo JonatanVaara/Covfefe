@@ -212,10 +212,14 @@ public class ProjectManagement {
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
 
-	public long getMemberTimePlanned(String ID) {
-		return memberAdmin.getMemberPlannedTime(ID);
-	}
+//	public long getMemberTimePlanned(String ID) {
+//		return memberAdmin.getMemberPlannedTime(ID);
+//	}
 
+	public long getMemberTimeAllocated(String ID) {
+		return memberAdmin.getMemberAllocatedTime(ID);
+	}
+	
 	public ProjectSchedule getProjectSchedule() {
 		return this.projectSchedule;
 	}

@@ -2,7 +2,6 @@ package projectManagement;
 
 import org.jfree.chart.ChartPanel;
 
-import java.util.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

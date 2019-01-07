@@ -177,7 +177,7 @@ public class MemberAdmin {
 	}
 	
 	//--------------------------------
-	//members Time planned for Project
+	//member's Time planned for Project
 	//--------------------------------		
 	
 	public long getMemberPlannedTime (String ID)
@@ -187,7 +187,7 @@ public class MemberAdmin {
 	}
 	
 	//----------------------------------
-	//members Time allocated for Project
+	//member's Time allocated for Project
 	//----------------------------------	
 	
 	public long getMemberAllocatedTime (String ID)

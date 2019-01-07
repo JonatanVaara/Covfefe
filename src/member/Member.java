@@ -146,12 +146,6 @@ public class Member {
 		return sum;
 	}
 
-	/* 
-	public long getAllocatedCosts() {
-		long totalCosts = getTotalTimeAllocated() * this.salary;
-		return totalCosts;
-	}
-	*/
 
 	// --------
 	// toString
