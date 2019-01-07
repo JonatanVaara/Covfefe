@@ -71,7 +71,7 @@ public class MemberAdmin {
 			if(member.getID().equals(ID))
 				{return member;}
 		}
-		// Error handling if MemberID not exists
+		// Error handling if MemberID not exists TEST
 		throw new IOException("Invalid MemberID!");
 	}	
 	
@@ -115,6 +115,7 @@ public class MemberAdmin {
 		String taskList = chosenMember.getPlannedTasks().stream().collect(Collectors.joining("\n"));
 		return taskList;
 	}
+	
 	
 	public ArrayList<String> getAllMemberPlannedTasks(){
 		

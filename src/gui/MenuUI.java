@@ -143,7 +143,7 @@ public class MenuUI {
 			public void actionPerformed(ActionEvent e) {
 				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
 				try {JOptionPane.showMessageDialog(null, "User: " + ID + " has so far spent " + pm.getMemberTimeAllocated(ID) + " hours on this project");
-			} catch (IOException x) {
+			} catch (Exception x) {
 				JOptionPane.showMessageDialog(null, x.getMessage());
 			}
 			}

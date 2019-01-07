@@ -64,7 +64,7 @@ public class Menu {
 					System.out.println("Please type member ID here (e.g. M001: ");
 					String MemberID1 = input.nextLine();
 					try {projectManagement.getMemberTimeAllocated(MemberID1);	}
-					catch(IOException e) {
+					catch(Exception e) {
 						System.out.println(e.getMessage());
 					}
 					break;
@@ -73,7 +73,7 @@ public class Menu {
 					System.out.println("Please type member ID here (e.g. M001: ");
 					String MemberID2 = input.nextLine();
 					try {projectManagement.getMemberAllocatedTasks(MemberID2);}
-					catch (IOException e) {
+					catch (Exception e) {
 						System.out.println(e.getMessage());
 					}
 					break;
