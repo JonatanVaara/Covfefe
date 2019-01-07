@@ -109,11 +109,12 @@ public class MemberAdmin {
 	//List with planned Tasks per member
 	//---------------------------------
 	
-	public String getMemberPlannedTasks (String ID) throws IOException
+	public String getMemberPlannedTasks (String ID) throws Exception
 	{	
-		Member chosenMember = retrieveMember(ID);
+		Member chosenMember = retrieveMember(ID);		
 		String taskList = chosenMember.getPlannedTasks().stream().collect(Collectors.joining("\n"));
 		return taskList;
+		
 	}
 	
 	
@@ -131,7 +132,7 @@ public class MemberAdmin {
 	//List with allocated Tasks per member
 	//---------------------------------
 	
-	public String getMemberAllocatedTasks (String ID) throws IOException
+	public String getMemberAllocatedTasks (String ID) throws Exception
 	{	
 		Member chosenMember = retrieveMember(ID);
 		String taskList = chosenMember.getAllocatedTasks().stream().collect(Collectors.joining("\n"));
