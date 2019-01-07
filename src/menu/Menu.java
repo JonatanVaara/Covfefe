@@ -27,19 +27,18 @@ public class Menu {
 	private ProjectManagement projectManagement;
 	private Scanner input;
 
-	private Menu() {
+	public Menu() {
 		input = new Scanner(System.in);
 		projectManagement = new ProjectManagement();
 		projectManagement.checkTasks(); // Checks to see that all tasks are the same, throws a runtime exception, ignores case
 	}
 
-	private void run()  {
-		int option;
+	public void run(int option)  {
 		do {
-			printMenu();
-			System.out.println(" Enter your option: ");
+			//printMenu();
+			//System.out.println(" Enter your option: ");
 
-			option = input.nextInt();
+			
 			input.nextLine();
 
 			System.out.println();
@@ -113,13 +112,13 @@ public class Menu {
 		return frame;
 	}
 	
-	private void printRiskMatrix() {
+	public void printRiskMatrix() {
 		RiskPlot plot = new RiskPlot(projectManagement.getRiskMatrix());
 		show(plot.show(800, 600));
 	}
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();
-		menu.run();
+		menu.run(0);
 	}
 }
