@@ -1,9 +1,8 @@
 package member;
 
+import java.io.IOException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.stream.Collectors;
 
@@ -65,15 +64,15 @@ public class MemberAdmin {
 	//get member-object from ID
 	//-------------------------	
 	
-	public Member retrieveMember (String ID)
+	public Member retrieveMember (String ID) throws IOException
 	{
 		for (Member member : memberList) 
 		{
 			if(member.getID().equals(ID))
 				{return member;}
 		}
-		// TODO: Needs error handling
-		return null;
+		// Error handling if MemberID not exists
+		throw new IOException("Invalid MemberID!");
 	}	
 	
 	//-------------------------------------
@@ -110,7 +109,7 @@ public class MemberAdmin {
 	//List with planned Tasks per member
 	//---------------------------------
 	
-	public String getMemberPlannedTasks (String ID)
+	public String getMemberPlannedTasks (String ID) throws IOException
 	{	
 		Member chosenMember = retrieveMember(ID);
 		String taskList = chosenMember.getPlannedTasks().stream().collect(Collectors.joining("\n"));
@@ -131,7 +130,7 @@ public class MemberAdmin {
 	//List with allocated Tasks per member
 	//---------------------------------
 	
-	public String getMemberAllocatedTasks (String ID)
+	public String getMemberAllocatedTasks (String ID) throws IOException
 	{	
 		Member chosenMember = retrieveMember(ID);
 		String taskList = chosenMember.getAllocatedTasks().stream().collect(Collectors.joining("\n"));
@@ -180,7 +179,7 @@ public class MemberAdmin {
 	//member's Time planned for Project
 	//--------------------------------		
 	
-	public long getMemberPlannedTime (String ID)
+	public long getMemberPlannedTime (String ID) throws IOException
 	{
 		Member chosenMember = retrieveMember(ID);
 		return chosenMember.getTotalTimePlanned();
@@ -190,7 +189,7 @@ public class MemberAdmin {
 	//member's Time allocated for Project
 	//----------------------------------	
 	
-	public long getMemberAllocatedTime (String ID)
+	public long getMemberAllocatedTime (String ID) throws IOException
 	{
 		Member chosenMember = retrieveMember(ID);
 		return chosenMember.getTotalTimeAllocated();
