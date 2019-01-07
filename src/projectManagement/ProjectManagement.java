@@ -209,7 +209,7 @@ public class ProjectManagement {
 //		return memberAdmin.getMemberPlannedTasks(ID);
 //	}
 	
-	public String getMemberAllocatedTasks(String ID) throws IOException{
+	public String getMemberAllocatedTasks(String ID) throws Exception{
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
 
@@ -217,7 +217,7 @@ public class ProjectManagement {
 //		return memberAdmin.getMemberPlannedTime(ID);
 //	}
 
-	public long getMemberTimeAllocated(String ID) throws IOException {
+	public long getMemberTimeAllocated(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTime(ID);
 	}
 	

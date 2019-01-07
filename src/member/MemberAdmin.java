@@ -179,7 +179,7 @@ public class MemberAdmin {
 	//member's Time planned for Project
 	//--------------------------------		
 	
-	public long getMemberPlannedTime (String ID) throws IOException
+	public long getMemberPlannedTime (String ID) throws Exception
 	{
 		Member chosenMember = retrieveMember(ID);
 		return chosenMember.getTotalTimePlanned();
@@ -189,7 +189,7 @@ public class MemberAdmin {
 	//member's Time allocated for Project
 	//----------------------------------	
 	
-	public long getMemberAllocatedTime (String ID) throws IOException
+	public long getMemberAllocatedTime (String ID) throws Exception
 	{
 		Member chosenMember = retrieveMember(ID);
 		return chosenMember.getTotalTimeAllocated();
