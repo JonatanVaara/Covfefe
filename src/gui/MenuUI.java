@@ -21,6 +21,8 @@ import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+
 import javax.swing.JMenu;
 import javax.swing.JTextField;
 import javax.swing.JTree;
@@ -140,7 +142,10 @@ public class MenuUI {
 		btnTimespent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
-				JOptionPane.showMessageDialog(null, "User: " + ID + " has so far spent " + pm.getMemberTimeAllocated(ID) + " hours on this project");
+				try {JOptionPane.showMessageDialog(null, "User: " + ID + " has so far spent " + pm.getMemberTimeAllocated(ID) + " hours on this project");
+			} catch (IOException x) {
+				JOptionPane.showMessageDialog(null, x.getMessage());
+			}
 			}
 		});
 
@@ -169,7 +174,10 @@ public class MenuUI {
 		btnTaskParticipation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
-				JOptionPane.showMessageDialog(null, "User: " + ID + " has so far worked on these tasks: \n" + pm.getMemberAllocatedTasks(ID));
+				try{JOptionPane.showMessageDialog(null, "User: " + ID + " has so far worked on these tasks: \n" + pm.getMemberAllocatedTasks(ID));
+				} catch (Exception x){
+					JOptionPane.showMessageDialog(null, x.getMessage());
+				}
 
 			}
 		});

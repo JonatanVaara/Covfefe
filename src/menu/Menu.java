@@ -4,7 +4,7 @@ package menu;
 import java.net.MalformedURLException;
 
 import java.awt.Component;
-
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
@@ -63,13 +63,19 @@ public class Menu {
 				case TIME_SPENT_MEMBER:
 					System.out.println("Please type member ID here (e.g. M001: ");
 					String MemberID1 = input.nextLine();
-					projectManagement.getMemberTimeAllocated(MemberID1);			
+					try {projectManagement.getMemberTimeAllocated(MemberID1);	}
+					catch(IOException e) {
+						System.out.println(e.getMessage());
+					}
 					break;
 					
 				case TASKS_PARTICIPATED_MEMBER:
 					System.out.println("Please type member ID here (e.g. M001: ");
 					String MemberID2 = input.nextLine();
-					projectManagement.getMemberAllocatedTasks(MemberID2);
+					try {projectManagement.getMemberAllocatedTasks(MemberID2);}
+					catch (IOException e) {
+						System.out.println(e.getMessage());
+					}
 					break;
 
 				case ALL_TIME_SPENT:
