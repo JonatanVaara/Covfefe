@@ -72,6 +72,10 @@ public class JsonReader {
 		
 		return memberList;
 	}
+	
+	// ---------------
+	// SCHEDULE READER
+	// ---------------
 
 	public Schedule scheduleReader(String fileName) {
 

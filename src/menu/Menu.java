@@ -45,7 +45,7 @@ public class Menu {
 			System.out.println();
 			switch (option) {
 				case RISK_MATRIX:
-					printRiskMatrix();
+					projectManagement.printRiskMatrix();
 					break;
 
 				case EARND_VALUE:
@@ -113,25 +113,7 @@ public class Menu {
 		System.out.println(" 9. Quit");
 	}
 	
-	public JFrame show(Component component) {
-		JFrame frame;
-		if (component != null) {
-			frame = new JFrame();
-			frame.getContentPane().add(component);
-			frame.pack();
-			frame.setLocationRelativeTo(null);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setVisible(true);
-		} else {
-			frame = null;
-		}
-		return frame;
-	}
 	
-	public void printRiskMatrix() {
-		RiskPlot plot = new RiskPlot(projectManagement.getRiskMatrix());
-		show(plot.show(800, 600));
-	}
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();

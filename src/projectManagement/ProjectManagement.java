@@ -1,12 +1,16 @@
 package projectManagement;
 
+import java.awt.Component;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+
 import jsonReader.JsonReader;
 import member.MemberAdmin;
 import risk.RiskMatrix;
+import risk.RiskPlot;
 import taskSchedule.*;
 
 public class ProjectManagement {
@@ -228,5 +232,25 @@ public class ProjectManagement {
 	
 	public ProjectSchedule getProjectSchedule() {
 		return this.projectSchedule;
+	}
+	
+	public JFrame show(Component component) {
+		JFrame frame;
+		if (component != null) {
+			frame = new JFrame();
+			frame.getContentPane().add(component);
+			frame.pack();
+			frame.setLocationRelativeTo(null);
+//			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
+		} else {
+			frame = null;
+		}
+		return frame;
+	}
+	
+	public void printRiskMatrix() {
+		RiskPlot plot = new RiskPlot(getRiskMatrix());
+		show(plot.show(800, 600));
 	}
 }

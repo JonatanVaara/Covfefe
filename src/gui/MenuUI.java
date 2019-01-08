@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import menu.Menu;
+//import menu.Menu;
 import menu.gifPlay;
 import projectManagement.ProjectManagement;
 
@@ -32,7 +32,7 @@ import java.awt.Font;
 
 public class MenuUI {
 
-	private Menu menu = new Menu();
+//	private Menu menu = new Menu();
 	private ProjectManagement pm = new ProjectManagement();
 	private JFrame frame;
 	private JLabel lblTopIcon;
@@ -82,10 +82,10 @@ public class MenuUI {
 		JButton btnRiskMatrix = new JButton("Risk Matrix");
 		btnRiskMatrix.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				menu.printRiskMatrix();
+				pm.printRiskMatrix();
 			}
 		});
-		btnRiskMatrix.setBounds(15, 397, 115, 29);
+		btnRiskMatrix.setBounds(698, 212, 180, 29);
 		frame.getContentPane().add(btnRiskMatrix);
 
 		JButton btnClose = new JButton("Close");
@@ -117,7 +117,7 @@ public class MenuUI {
 				pm.printEVChart();
 			}
 		});
-		btnEarnedValue.setBounds(15, 452, 157, 29);
+		btnEarnedValue.setBounds(361, 335, 180, 29);
 		frame.getContentPane().add(btnEarnedValue);
 
 		JButton btnScheduleVariance = new JButton("Schedule Variance");
@@ -126,7 +126,7 @@ public class MenuUI {
 				pm.printSVChart();
 			}
 		});
-		btnScheduleVariance.setBounds(217, 452, 180, 29);
+		btnScheduleVariance.setBounds(361, 277, 180, 29);
 		frame.getContentPane().add(btnScheduleVariance);
 
 		JButton btnCostVariance = new JButton("Cost Variance");
@@ -135,7 +135,7 @@ public class MenuUI {
 				pm.printCVChart();
 			}
 		});
-		btnCostVariance.setBounds(460, 452, 180, 29);
+		btnCostVariance.setBounds(361, 212, 180, 29);
 		frame.getContentPane().add(btnCostVariance);
 
 		JButton btnTimespent = new JButton("Time Spent");
@@ -151,16 +151,16 @@ public class MenuUI {
 			}
 		});
 
-		btnTimespent.setBounds(600, 177, 157, 29);
+		btnTimespent.setBounds(15, 212, 157, 29);
 		frame.getContentPane().add(btnTimespent);
 
-		JButton btnAllTimeSpent = new JButton("All Time Spent");
+		JButton btnAllTimeSpent = new JButton("Time Spent All");
 		btnAllTimeSpent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pm.getMemberContribution();
 			}
 		});
-		btnAllTimeSpent.setBounds(15, 522, 157, 29);
+		btnAllTimeSpent.setBounds(15, 335, 157, 29);
 		frame.getContentPane().add(btnAllTimeSpent);
 
 		JButton btnPlotSchedule = new JButton("Plot Schedule");
@@ -169,13 +169,13 @@ public class MenuUI {
 				pm.printSchedule();
 			}
 		});
-		btnPlotSchedule.setBounds(217, 522, 143, 29);
+		btnPlotSchedule.setBounds(698, 277, 180, 29);
 		frame.getContentPane().add(btnPlotSchedule);
 
 		JButton btnTaskParticipation = new JButton("Task Participation");
 		btnTaskParticipation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
+				String ID = JOptionPane.showInputDialog(null, "Enter User ID\n"+"Users:\n"+pm.getUserIDName()+"\n");
 				try{JOptionPane.showMessageDialog(null, "User: " + ID + " has so far worked on these tasks: \n" + pm.getMemberAllocatedTasks(ID));
 				} catch (Exception x){
 					JOptionPane.showMessageDialog(null, x.getMessage());
@@ -183,13 +183,23 @@ public class MenuUI {
 
 			}
 		});
-		btnTaskParticipation.setBounds(600, 236, 157, 29);
+		btnTaskParticipation.setBounds(15, 277, 157, 29);
 		frame.getContentPane().add(btnTaskParticipation);
 		
-		JLabel lblCharts = new JLabel("Charts");
+		JLabel lblCharts = new JLabel("Member Info");
 		lblCharts.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblCharts.setBounds(15, 335, 163, 46);
+		lblCharts.setBounds(10, 136, 261, 46);
 		frame.getContentPane().add(lblCharts);
+		
+		JLabel lblBudget = new JLabel("KPI");
+		lblBudget.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblBudget.setBounds(426, 136, 261, 46);
+		frame.getContentPane().add(lblBudget);
+		
+		JLabel lblPlanning = new JLabel("Planning");
+		lblPlanning.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblPlanning.setBounds(715, 136, 261, 46);
+		frame.getContentPane().add(lblPlanning);
 
 	}
 
