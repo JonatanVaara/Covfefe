@@ -141,7 +141,9 @@ public class MenuUI {
 		JButton btnTimespent = new JButton("Time Spent");
 		btnTimespent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String ID = JOptionPane.showInputDialog(null, "Enter User ID");
+				String ID = JOptionPane.showInputDialog(null, "Enter User ID\n"+
+						"Users:\n"+pm.getUserIDName()+"\n"
+			);
 				try {JOptionPane.showMessageDialog(null, "User: " + ID + " has so far spent " + pm.getMemberTimeAllocated(ID) + " hours on this project");
 			} catch (Exception x) {
 				JOptionPane.showMessageDialog(null, x.getMessage());

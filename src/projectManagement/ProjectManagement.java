@@ -188,6 +188,11 @@ public class ProjectManagement {
 		memberAdmin.getPlotMemberContribution();
 	}
 	
+	public String getUserIDName() {
+		String idName = memberAdmin.getUserIDName();
+		return idName;
+	}
+	
 
 	public long getTotalTimePlanned() {
 		return memberAdmin.getTotalPlannedTime();

@@ -196,6 +196,17 @@ public class MemberAdmin {
 		return chosenMember.getTotalTimeAllocated();
 	}
 	
+	public String getUserIDName() {
+		String member = "";
+		for (Member nameID : memberList) {
+		member += nameID.getID()+": "+nameID.getName()+"\n";
+		}
+		if (member == "") {
+			return "No members registered";
+		}
+		return member;
+	}
+	
 	//---------------------------
 	//--returns planned costs ---
 	//------of given tasked -----
