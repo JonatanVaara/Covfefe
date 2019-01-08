@@ -1,21 +1,21 @@
 [
 	{
-		"riskName" : "Failure",
+		"riskName" : "CASE Tool Underperformance",
 		"impact" : 6,
 		"probability" : 5
 	},
 	{
-		"riskName" : "Death",
+		"riskName" : "Team Conflicts",
+		"impact" : 7,
+		"probability" : 4
+	},
+	{
+		"riskName" : "Program Not Working",
 		"impact" : 10,
 		"probability" : 3
 	},
 	{
-		"riskName" : "Break down",
-		"impact" : 7,
-		"probability" : 6
-	},
-	{
-		"riskName" : "Late",
+		"riskName" : "Staff Are Late",
 		"impact" : 2,
 		"probability" : 8
 	}
