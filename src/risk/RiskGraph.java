@@ -33,7 +33,7 @@ public class RiskGraph extends JFrame {
 
 	
 	//------------------
-	//---CUSTOM RENDERER (for customized BarChart Colors)
+	//---CUSTOM RENDERER (for customized bar Colors)
 	//------------------
 
 	
