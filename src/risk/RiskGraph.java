@@ -61,7 +61,7 @@ public class RiskGraph extends JFrame {
 
 		CategoryDataset dataset = createDataset();
 
-		JFreeChart chart = ChartFactory.createBarChart("Risk Identifcation Matrix", "Description", "Risk", dataset,
+		JFreeChart chart = ChartFactory.createBarChart("Risk Identifcation Matrix", "Description", "Risk (Impact * Probability)", dataset,
 				PlotOrientation.HORIZONTAL, false, true, false);
 
 		final CategoryPlot plot = chart.getCategoryPlot();
