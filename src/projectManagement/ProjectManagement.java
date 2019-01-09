@@ -144,7 +144,7 @@ public class ProjectManagement {
 		LocalDate returnDate = null;
 		if (name == "First Date") {
 			LocalDate firstDate = null;
-			Schedule schedule = projectSchedule.getPlannedSchedule();
+			Schedule schedule = projectSchedule.getCurrentSchedule();
 			for (Task task : schedule.getTasks()) {
 				LocalDate date = task.getStartDate();
 				if (firstDate == null || firstDate.isAfter(date)) {
