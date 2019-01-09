@@ -1,7 +1,6 @@
 package projectManagement;
 
 import java.awt.Component;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -10,7 +9,6 @@ import javax.swing.JFrame;
 import jsonReader.JsonReader;
 import member.MemberAdmin;
 import risk.RiskMatrix;
-import risk.RiskPlot;
 import taskSchedule.*;
 
 public class ProjectManagement {
@@ -193,17 +191,10 @@ public class ProjectManagement {
 		return memberAdmin.getActualCosts(checkDate);
 	}
 
-//	public String getMemberPlannedTasks(String ID) {
-//		return memberAdmin.getMemberPlannedTasks(ID);
-//	}
 
 	public String getMemberAllocatedTasks(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
-
-//	public long getMemberTimePlanned(String ID) {
-//		return memberAdmin.getMemberPlannedTime(ID);
-//	}
 
 	public long getMemberTimeAllocated(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTime(ID);
@@ -231,7 +222,5 @@ public class ProjectManagement {
 	public void printRiskMatrix() {
 		riskMatrix.getPlotRisks(); 
 		
-//		RiskPlot plot = new RiskPlot(getRiskMatrix());
-//		show(plot.show(800, 600));
 	}
 }
