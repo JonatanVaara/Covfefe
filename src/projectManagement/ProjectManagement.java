@@ -1,11 +1,8 @@
 package projectManagement;
 
-import java.awt.Component;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import javax.swing.JFrame;
 
 import jsonReader.JsonReader;
 import member.MemberAdmin;

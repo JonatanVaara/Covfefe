@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
-import javax.swing.WindowConstants;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
