@@ -11,23 +11,13 @@ import javax.swing.JOptionPane;
 
 import projectManagement.ProjectManagement;
 
-import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-
-import javax.swing.JMenu;
-import javax.swing.JTextField;
-import javax.swing.JTree;
-import java.awt.event.InputMethodListener;
-import java.awt.event.InputMethodEvent;
 import java.awt.Font;
 
 public class MenuUI {
@@ -35,7 +25,6 @@ public class MenuUI {
 //	private Menu menu = new Menu();
 	private ProjectManagement pm = new ProjectManagement();
 	private JFrame frame;
-	private JLabel lblTopIcon;
 
 	/**
 	 * Launch the application.
@@ -73,13 +62,14 @@ public class MenuUI {
 
 		JPopupMenu popupMenu = new JPopupMenu();
 		addPopup(frame.getContentPane(), popupMenu);
-
+		
+		//The top picture
 		JLabel lblTopIcon = new JLabel(
 				new ImageIcon("TopTitel3.png"));
 		lblTopIcon.setBounds(0, 0, 1000, 120);
-		// frame.add(new JLabel(new ImageIcon("")));
 		frame.getContentPane().add(lblTopIcon);
-
+		
+		//Risk Matrix button
 		JButton btnRiskMatrix = new JButton("Risk Matrix");
 		btnRiskMatrix.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -88,23 +78,12 @@ public class MenuUI {
 		});
 		btnRiskMatrix.setBounds(698, 212, 180, 29);
 		frame.getContentPane().add(btnRiskMatrix);
-
+		
+		// Close Button
 		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				try {
-//					gifPlay.goodBye();
-//				} catch (MalformedURLException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//				try {
-//					TimeUnit.SECONDS.sleep(5);
-//				} catch (InterruptedException e2) {
-//					// TODO Auto-generated catch block
-//					e2.printStackTrace();
-//				}
 
 				System.exit(0);
 			}
@@ -112,6 +91,7 @@ public class MenuUI {
 		btnClose.setBounds(902, 540, 115, 29);
 		frame.getContentPane().add(btnClose);
 
+		//Earned Value Button
 		JButton btnEarnedValue = new JButton("Earned Value");
 		btnEarnedValue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,6 +101,7 @@ public class MenuUI {
 		btnEarnedValue.setBounds(361, 335, 180, 29);
 		frame.getContentPane().add(btnEarnedValue);
 
+		// Schedule Variance button
 		JButton btnScheduleVariance = new JButton("Schedule Variance");
 		btnScheduleVariance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -130,6 +111,7 @@ public class MenuUI {
 		btnScheduleVariance.setBounds(361, 277, 180, 29);
 		frame.getContentPane().add(btnScheduleVariance);
 
+		// Cost Variance button
 		JButton btnCostVariance = new JButton("Cost Variance");
 		btnCostVariance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -139,6 +121,7 @@ public class MenuUI {
 		btnCostVariance.setBounds(361, 212, 180, 29);
 		frame.getContentPane().add(btnCostVariance);
 
+		// Time Spent button
 		JButton btnTimespent = new JButton("Time Spent");
 		btnTimespent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -155,6 +138,7 @@ public class MenuUI {
 		btnTimespent.setBounds(15, 212, 157, 29);
 		frame.getContentPane().add(btnTimespent);
 
+		// All Time Spent button
 		JButton btnAllTimeSpent = new JButton("Time Spent All");
 		btnAllTimeSpent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -164,6 +148,7 @@ public class MenuUI {
 		btnAllTimeSpent.setBounds(15, 335, 157, 29);
 		frame.getContentPane().add(btnAllTimeSpent);
 
+		// Plot Schedule button
 		JButton btnPlotSchedule = new JButton("Plot Schedule");
 		btnPlotSchedule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -173,6 +158,7 @@ public class MenuUI {
 		btnPlotSchedule.setBounds(698, 277, 180, 29);
 		frame.getContentPane().add(btnPlotSchedule);
 
+		// Task Participation button
 		JButton btnTaskParticipation = new JButton("Task Participation");
 		btnTaskParticipation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -187,15 +173,17 @@ public class MenuUI {
 		btnTaskParticipation.setBounds(15, 277, 157, 29);
 		frame.getContentPane().add(btnTaskParticipation);
 		
+		//The next three labels are only the htext labels "Charts", "KPI" and "Planning"
+		
 		JLabel lblCharts = new JLabel("Member Info");
 		lblCharts.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblCharts.setBounds(10, 136, 261, 46);
 		frame.getContentPane().add(lblCharts);
 		
-		JLabel lblBudget = new JLabel("KPI");
-		lblBudget.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblBudget.setBounds(426, 136, 261, 46);
-		frame.getContentPane().add(lblBudget);
+		JLabel lblKPI = new JLabel("KPI");
+		lblKPI.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblKPI.setBounds(426, 136, 261, 46);
+		frame.getContentPane().add(lblKPI);
 		
 		JLabel lblPlanning = new JLabel("Planning");
 		lblPlanning.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -203,6 +191,8 @@ public class MenuUI {
 		frame.getContentPane().add(lblPlanning);
 
 	}
+	
+	// Things so that input is noticed and responded to
 
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

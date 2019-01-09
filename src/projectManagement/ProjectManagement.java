@@ -62,53 +62,6 @@ public class ProjectManagement {
 		this.projectSchedule.plotChart();
 	}
 
-	// -------------------------
-	// --GETTERS AND SETTERS----
-	// -------------------------
-
-	public RiskMatrix getRiskMatrix() {
-		return this.riskMatrix;
-	}
-
-	// EV with current schedule
-	public long getEarnedValue(LocalDate checkDate) {
-		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
-
-		if (completedTasks.size() == 0) {
-			return 0;
-		}
-
-		return memberAdmin.getPlannedCostsOfTask(completedTasks);
-	}
-
-	// SV with planned schedule
-	public long getScheduleVariance(LocalDate checkDate) {
-		long SV = 0;
-		long plannedSpent;
-		ArrayList<String> plannedCompletedTasks = projectSchedule.completedTasksPlanned(checkDate);
-		if (plannedCompletedTasks.size() == 0) {
-			plannedSpent = 0;
-		} else {
-			plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);
-		}
-		SV = this.getEarnedValue(checkDate) - plannedSpent;
-		return SV;
-	}
-	
-	// Method for getting Cost Variance by specific date
-
-	public long getCostVariance(LocalDate checkDate) {
-		long costVariance = 0;
-		long earnedValue = 0;
-		long actualCost = 0;
-
-		earnedValue = getEarnedValue(checkDate);
-		actualCost = getActualCost(checkDate);
-		costVariance = earnedValue - actualCost;// getActualValue();
-		return costVariance;
-	}
-
-	
 	// Method for sending right dates into the LineChart-class
 
 	public void printChart(String chartName) {
@@ -141,8 +94,59 @@ public class ProjectManagement {
 		}
 
 	}
-	
-	//Method for comparing first date and end date for tasks
+
+	public void printRiskMatrix() {
+		riskMatrix.getPlotRisks();
+
+	}
+
+	// -------------------------
+	// --GETTERS AND SETTERS----
+	// -------------------------
+
+	public RiskMatrix getRiskMatrix() {
+		return this.riskMatrix;
+	}
+
+	// EV with current schedule
+	public long getEarnedValue(LocalDate checkDate) {
+		ArrayList<String> completedTasks = projectSchedule.completedTasksCurrent(checkDate);
+
+		if (completedTasks.size() == 0) {
+			return 0;
+		}
+
+		return memberAdmin.getPlannedCostsOfTask(completedTasks);
+	}
+
+	// SV with planned schedule
+	public long getScheduleVariance(LocalDate checkDate) {
+		long SV = 0;
+		long plannedSpent;
+		ArrayList<String> plannedCompletedTasks = projectSchedule.completedTasksPlanned(checkDate);
+		if (plannedCompletedTasks.size() == 0) {
+			plannedSpent = 0;
+		} else {
+			plannedSpent = memberAdmin.getPlannedCostsOfTask(plannedCompletedTasks);
+		}
+		SV = this.getEarnedValue(checkDate) - plannedSpent;
+		return SV;
+	}
+
+	// Method for getting Cost Variance by specific date
+
+	public long getCostVariance(LocalDate checkDate) {
+		long costVariance = 0;
+		long earnedValue = 0;
+		long actualCost = 0;
+
+		earnedValue = getEarnedValue(checkDate);
+		actualCost = getActualCost(checkDate);
+		costVariance = earnedValue - actualCost;// getActualValue();
+		return costVariance;
+	}
+
+	// Method for comparing first date and end date for tasks
 
 	public LocalDate getFirstEndDate(String name) {
 		LocalDate returnDate = null;
@@ -208,26 +212,5 @@ public class ProjectManagement {
 	public ProjectSchedule getProjectSchedule() {
 		return this.projectSchedule;
 	}
-	
-	//Below is something Christian made for printing the risk matrix
 
-	public JFrame show(Component component) {
-		JFrame frame;
-		if (component != null) {
-			frame = new JFrame();
-			frame.getContentPane().add(component);
-			frame.pack();
-			frame.setLocationRelativeTo(null);
-//			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setVisible(true);
-		} else {
-			frame = null;
-		}
-		return frame;
-	}
-
-	public void printRiskMatrix() {
-		riskMatrix.getPlotRisks(); 
-		
-	}
 }

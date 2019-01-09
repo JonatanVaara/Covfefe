@@ -21,6 +21,7 @@ public class LineChart extends JFrame {
 	ArrayList<LocalDate> dateList;
 	private String chartName;
 
+	
 	public LineChart(ArrayList<LocalDate> listOfDates, String chartName) {
 		super("");
 
@@ -28,8 +29,10 @@ public class LineChart extends JFrame {
 		this.chartName = chartName;
 	}
 
+	//Creates a chart 
+	
 	public void plotChart() {
-
+		//Uses createDataset() to create a data set for the graph
 		CategoryDataset dataset = createDataset();
 
 		JFreeChart chart = ChartFactory.createLineChart(chartName, "Value", chartName, dataset,
@@ -44,7 +47,8 @@ public class LineChart extends JFrame {
 		this.setVisible(true);
 	}
 
-
+	//Depending on what name the LineChart has it creates different charts...
+	//... and names them differently
 
 	public CategoryDataset createDataset() {
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
