@@ -22,7 +22,7 @@ public class LineChart extends JFrame {
 	private String chartName;
 
 	public LineChart(ArrayList<LocalDate> listOfDates, String chartName) {
-		super("Date' Earned Value");
+		super("");
 
 		this.dateList = listOfDates;
 		this.chartName = chartName;
