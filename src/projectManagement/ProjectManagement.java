@@ -229,7 +229,9 @@ public class ProjectManagement {
 	}
 
 	public void printRiskMatrix() {
-		RiskPlot plot = new RiskPlot(getRiskMatrix());
-		show(plot.show(800, 600));
+		riskMatrix.getPlotRisks(); 
+		
+//		RiskPlot plot = new RiskPlot(getRiskMatrix());
+//		show(plot.show(800, 600));
 	}
 }

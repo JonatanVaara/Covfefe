@@ -14,12 +14,34 @@ public class RiskMatrix {
 	public ArrayList<Risk> getRisks() {
 		return new ArrayList<>(this.riskList);
 	}
-
+	
+	//----------------
+	//---GRAPH OLD-------
+	//----------------
+	
+	public void getPlotRisksOLD() {
+		RiskGraph plotRisks = new RiskGraph(riskList);
+		plotRisks.plotChart();
+		}
+	
+	//----------------
+	//---GRAPH NEW----
+	//----------------
+	
+	public void getPlotRisks() {
+		RiskGraph plotRisks = new RiskGraph(riskList);
+		plotRisks.plotChart();
+		}
+	
+	//----------------
+	//---TABLE -------
+	//----------------
+	
 	public String printRiskMatrix() {
 		String print = ("    Name    \t    Impact\t|    Probability\t|    Risk\t|" + NEW_LINE);
 		for (Risk risk : riskList) {
 			print += ("    " + risk.getName() + "\t    " + risk.getImpact() + "\t\t|    " + risk.getProbability()
-					+ "\t\t\t|    " + risk.risk() + "\t\t|" + NEW_LINE);
+					+ "\t\t\t|    " + risk.getCalculatedRisk() + "\t\t|" + NEW_LINE);
 		}
 		return print;
 	}

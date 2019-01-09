@@ -36,7 +36,7 @@ public class Risk {
 		this.probability = probability;
 	}
 	
-	public long risk() {
+	public long getCalculatedRisk() {
 		return this.getImpact() * this.getProbability();
 	}
 	

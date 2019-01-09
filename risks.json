@@ -1,22 +1,27 @@
 [
 	{
 		"riskName" : "CASE Tool Underperformance",
-		"impact" : 6,
-		"probability" : 5
+		"impact" : 4,
+		"probability" : 3
 	},
 	{
 		"riskName" : "Team Conflicts",
-		"impact" : 7,
-		"probability" : 4
+		"impact" : 6,
+		"probability" : 3
 	},
 	{
-		"riskName" : "Program Not Working",
+		"riskName" : "Program Not Running",
 		"impact" : 10,
 		"probability" : 3
 	},
 	{
-		"riskName" : "Staff Are Late",
+		"riskName" : "Staff Unpunctuality",
 		"impact" : 2,
 		"probability" : 8
+	},
+	{
+		"riskName" : "Staff absence (e.g. Illness)",
+		"impact" : 6,
+		"probability" : 5
 	}
 ]
