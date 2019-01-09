@@ -107,29 +107,46 @@
 						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution Chart" : 5, "Member's Task Summary" : 4, "Member's Time Summary" : 4, "Project Schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3},
 						"allocatedTaskTime" : {
 						"Planning": { 
-								"27/11/2018": 4,
-								"29/11/2018": 3,
+						"27/11/2018": 4,
+						"29/11/2018": 3,
+                        "04/12/2018": 4,
+						"06/12/2018": 4,
+						"11/12/2018": 4,
+						"13/12/2018": 3
                              },
+
                              "Risk Matrix" : {
                              	"24/11/2018" : 2
                              },
-                             "Member Contribution Chart" : {
-                             	"26/11/2018" : 2
-                             },
-                             "Member's Task Summary" : {
-                             	"27/11/2018" : 2
-                             },
-                             "Member's Time Summary" : {
-                             	"28/11/2018" : 2
-                             },
-                             "Project Schedule" : {
-                             	"01/12/2018" : 1,
-                             	"02/12/2018" : 1
-                             }, 
                              "Output" : {
                              	"29/11/2018" : 1,	
+							},
+							"Earned Value" : {
+								"01/12/2018" : 2,
+								"02/12/2018" : 3,
+								"03/12/2018" : 1,
+							},
+							"Schedule Variance" : {
+								"04/12/2018" : 2,
+								"05/12/2018" : 2,
+							},
+							"Cost Variance" : {
+								"06/12/2018" : 1,
+								"10/12/2018" : 1,
+							},
+							"Running Prototype" : {
+								"19/12/2018" : 1,
+							},
+							"Menu and Interface" : {
+								"04/01/2019" : 4,
+								"07/01/2019" : 2,
+								"08/01/2019" : 2,
+							},
+							"Output" : {
+							"03/01/2019" : 2,
 							}
-						}
+								
+						}			
 },
 
 { 	
@@ -141,19 +158,30 @@
 						    "Planning": {
 						    "27/11/2018": 4,
 						    "29/11/2018": 3,
-                            "04/12/2018": 4
+                            "04/12/2018": 4,
+                            "06/12/2018": 4,
+							"11/12/2018": 4,
+							"13/12/2018": 3,
+							"18/12/2018": 4
                             },
                             "Menu and Interface": {
-                                "03/12/2018" : 2,
+                                "03/12/2018" : 1,
+                                "04/12/2018" : 2,
                              },
                             "Earned Value": {
-                                "04/12/2018" : 1,
+                                "05/12/2018" : 1,
                             },
                             "Schedule Variance": {
-                                "04/12/2018" : 1,
+                                "06/12/2018" : 1,
                             },
                             "Cost Variance": {
-                                "04/12/2018" : 1
+                                "06/12/2018" : 1,
+                            },
+                            "Running Prototype": {
+                                 "07/01/2019" : 1,
+                            },
+                            "Risk Matrix": {
+                                 "08/01/2019" : 1
                          	}
 		           	}				
                   	
