@@ -38,6 +38,8 @@ public class RiskGraph extends JFrame {
 
 	
 	class CustomRenderer extends BarRenderer {
+		private static final long serialVersionUID = 1L;
+
 		private Paint[] colors;
 
 		public CustomRenderer(final Paint[] colors) {
