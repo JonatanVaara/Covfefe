@@ -18,6 +18,7 @@ import javax.swing.JPopupMenu;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.awt.Font;
 
 public class MenuUI {
@@ -163,10 +164,21 @@ public class MenuUI {
 		btnTaskParticipation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String ID = JOptionPane.showInputDialog(null, "Enter User ID\n"+"Users:\n"+pm.getUserIDName()+"\n");
-				try{JOptionPane.showMessageDialog(null, "User: " + ID + " has so far worked on these tasks: \n" + pm.getMemberAllocatedTasks(ID));
-				} catch (Exception x){
+				if(ID != null && !ID.isEmpty()) {
+				try{JOptionPane.showMessageDialog(null, "User: " + ID + " has worked on these tasks: \n" + pm.getMemberAllocatedTasks(ID));
+				} 
+				catch (Exception x){
 					JOptionPane.showMessageDialog(null, x.getMessage());
+					btnTaskParticipation.doClick();
 				}
+				}
+				else if(ID != null && ID.isEmpty())
+				{
+					JOptionPane.showMessageDialog(null, "No ID entered!");
+					btnTaskParticipation.doClick();
+
+				}
+				else {}
 
 			}
 		});

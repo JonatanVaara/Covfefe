@@ -1,6 +1,7 @@
 package projectManagement;
 
 import java.awt.Component;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -201,11 +202,11 @@ public class ProjectManagement {
 		return memberAdmin.getActualCosts(checkDate);
 	}
 
-	public String getMemberAllocatedTasks(String ID) throws Exception {
+	public String getMemberAllocatedTasks(String ID) throws IOException, Exception {
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
 
-	public long getMemberTimeAllocated(String ID) throws Exception {
+	public long getMemberTimeAllocated(String ID) throws IOException, Exception {
 		return memberAdmin.getMemberAllocatedTime(ID);
 	}
 
