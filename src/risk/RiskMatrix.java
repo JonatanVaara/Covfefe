@@ -15,14 +15,6 @@ public class RiskMatrix {
 		return new ArrayList<>(this.riskList);
 	}
 	
-	//----------------
-	//---GRAPH OLD-------
-	//----------------
-	
-	public void getPlotRisksOLD() {
-		RiskGraph plotRisks = new RiskGraph(riskList);
-		plotRisks.plotChart();
-		}
 	
 	//----------------
 	//---GRAPH NEW----

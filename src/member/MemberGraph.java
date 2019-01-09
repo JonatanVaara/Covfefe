@@ -14,6 +14,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class MemberGraph extends JFrame {
 
 	ArrayList<Member> memberList;
+	private static final long serialVersionUID = 1L;
+
 
 	public MemberGraph(ArrayList<Member> listOfMembers) {
 		super("Members' contribution");
@@ -21,8 +23,11 @@ public class MemberGraph extends JFrame {
 		this.memberList = listOfMembers;
 	}
 
-	private static final long serialVersionUID = 1L;
-
+	
+	//------------------
+	//---MEMBER CHART---
+	//------------------
+	
 	public void plotChart() {
 
 		CategoryDataset dataset = createDataset();
@@ -38,6 +43,10 @@ public class MemberGraph extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
+	
+	//--------------------
+	//---MEMBER DATASET---
+	//--------------------
 
 	public CategoryDataset createDataset() {
 
