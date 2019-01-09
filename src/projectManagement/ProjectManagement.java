@@ -83,7 +83,7 @@ public class ProjectManagement {
 		return memberAdmin.getPlannedCostsOfTask(completedTasks);
 	}
 
-	// EV with planned schedule
+	// SV with planned schedule
 	public long getScheduleVariance(LocalDate checkDate) {
 		long SV = 0;
 		long plannedSpent;
@@ -96,6 +96,8 @@ public class ProjectManagement {
 		SV = this.getEarnedValue(checkDate) - plannedSpent;
 		return SV;
 	}
+	
+	// Method for getting Cost Variance by specific date
 
 	public long getCostVariance(LocalDate checkDate) {
 		long costVariance = 0;
@@ -108,6 +110,8 @@ public class ProjectManagement {
 		return costVariance;
 	}
 
+	
+	// Method for sending right dates into the LineChart-class
 
 	public void printChart(String chartName) {
 
@@ -139,6 +143,8 @@ public class ProjectManagement {
 		}
 
 	}
+	
+	//Method for comparing first date and end date for tasks
 
 	public LocalDate getFirstEndDate(String name) {
 		LocalDate returnDate = null;
@@ -193,17 +199,9 @@ public class ProjectManagement {
 		return memberAdmin.getActualCosts(checkDate);
 	}
 
-//	public String getMemberPlannedTasks(String ID) {
-//		return memberAdmin.getMemberPlannedTasks(ID);
-//	}
-
 	public String getMemberAllocatedTasks(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
-
-//	public long getMemberTimePlanned(String ID) {
-//		return memberAdmin.getMemberPlannedTime(ID);
-//	}
 
 	public long getMemberTimeAllocated(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTime(ID);
@@ -212,6 +210,8 @@ public class ProjectManagement {
 	public ProjectSchedule getProjectSchedule() {
 		return this.projectSchedule;
 	}
+	
+	//Below is something Christian made for printing the risk matrix
 
 	public JFrame show(Component component) {
 		JFrame frame;
