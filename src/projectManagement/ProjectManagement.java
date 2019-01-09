@@ -32,30 +32,29 @@ public class ProjectManagement {
 	// --Check if Tasks are the same----
 	// --------in all json-files--------
 	// ---------------------------------
-	
+
 	public void checkTasks() {
-		
+
 		ArrayList<String> referenceList = this.projectSchedule.getAllTasksNamePlanned();
-		
+
 		this.checkTasksToList(referenceList, this.projectSchedule.getAllTasksNameCurrent());
 		this.checkTasksToList(referenceList, this.memberAdmin.getAllMemberAllocatedTasks());
 		this.checkTasksToList(referenceList, this.memberAdmin.getAllMemberPlannedTasks());
 	}
-	
+
 	public void checkTasksToList(ArrayList<String> referenceList, ArrayList<String> listToCheck) {
 
 		boolean taskExist = false;
-		
+
 		for (String name : listToCheck) {
 			taskExist = false;
 			for (String referenceName : referenceList) {
-				if(name.equalsIgnoreCase(referenceName)) {
+				if (name.equalsIgnoreCase(referenceName)) {
 					taskExist = true;
 				}
 			}
 			if (taskExist == false) {
-				throw new RuntimeException(
-						"Task " + name + " does not exist in Planned Schedule");
+				throw new RuntimeException("Task " + name + " does not exist in Planned Schedule");
 			}
 		}
 	}
@@ -109,55 +108,35 @@ public class ProjectManagement {
 		return costVariance;
 	}
 
-	public void printEVChart() {
+
+	public void printChart(String chartName) {
 
 		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
 
 		LocalDate firstDate = getFirstEndDate("First Date");
-		LocalDate endDate = LocalDate.now();
-		
+		LocalDate endDate = getFirstEndDate("");
+
 		dates.add(firstDate);
 		while (firstDate.isBefore(endDate)) {
+
 			firstDate = firstDate.plusDays(14);
-			dates.add(firstDate);
+			if (firstDate.isAfter(endDate)) {
+				dates.add(endDate);
+			} else {
+				dates.add(firstDate);
+			}
 		}
 
-		LineChart lineChart = new LineChart(dates, "Earned Value");
-		lineChart.plotChart();
-
-	}
-
-	public void printSVChart() {
-		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
-
-		LocalDate firstDate = getFirstEndDate("First Date");
-		LocalDate endDate = LocalDate.now();
-		
-		dates.add(firstDate);
-		while (firstDate.isBefore(endDate)) {
-			firstDate = firstDate.plusDays(14);
-			dates.add(firstDate);
+		if (chartName == "Cost Variance") {
+			LineChart lineChart = new LineChart(dates, "Cost Variance");
+			lineChart.plotChart();
+		} else if (chartName == "Schedule Variance") {
+			LineChart lineChart = new LineChart(dates, "Schedule Variance");
+			lineChart.plotChart();
+		} else {
+			LineChart lineChart = new LineChart(dates, "Earned Value");
+			lineChart.plotChart();
 		}
-
-		LineChart lineChart = new LineChart(dates, "Schedule Variance");
-		lineChart.plotChart();
-	}
-
-	public void printCVChart() {
-
-		ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
-
-		LocalDate firstDate = getFirstEndDate("First Date");
-		LocalDate endDate = LocalDate.now();
-		
-		dates.add(firstDate);
-		while (firstDate.isBefore(endDate)) {
-			firstDate = firstDate.plusDays(14);
-			dates.add(firstDate);
-		}
-
-		LineChart lineChart = new LineChart(dates, "Cost Variance");
-		lineChart.plotChart();
 
 	}
 
@@ -175,7 +154,7 @@ public class ProjectManagement {
 			}
 		} else {
 			LocalDate endDate = null;
-			Schedule schedule = projectSchedule.getPlannedSchedule();
+			Schedule schedule = projectSchedule.getCurrentSchedule();
 			for (Task task : schedule.getTasks()) {
 				LocalDate date = task.getEndDate();
 				if (endDate == null || endDate.isBefore(date)) {
@@ -188,15 +167,15 @@ public class ProjectManagement {
 
 		return returnDate;
 	}
+
 	public void getMemberContribution() {
 		memberAdmin.getPlotMemberContribution();
 	}
-	
+
 	public String getUserIDName() {
 		String idName = memberAdmin.getUserIDName();
 		return idName;
 	}
-	
 
 	public long getTotalTimePlanned() {
 		return memberAdmin.getTotalPlannedTime();
@@ -217,8 +196,8 @@ public class ProjectManagement {
 //	public String getMemberPlannedTasks(String ID) {
 //		return memberAdmin.getMemberPlannedTasks(ID);
 //	}
-	
-	public String getMemberAllocatedTasks(String ID) throws Exception{
+
+	public String getMemberAllocatedTasks(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTasks(ID);
 	}
 
@@ -229,11 +208,11 @@ public class ProjectManagement {
 	public long getMemberTimeAllocated(String ID) throws Exception {
 		return memberAdmin.getMemberAllocatedTime(ID);
 	}
-	
+
 	public ProjectSchedule getProjectSchedule() {
 		return this.projectSchedule;
 	}
-	
+
 	public JFrame show(Component component) {
 		JFrame frame;
 		if (component != null) {
@@ -248,7 +227,7 @@ public class ProjectManagement {
 		}
 		return frame;
 	}
-	
+
 	public void printRiskMatrix() {
 		RiskPlot plot = new RiskPlot(getRiskMatrix());
 		show(plot.show(800, 600));

@@ -114,7 +114,7 @@ public class MenuUI {
 		JButton btnEarnedValue = new JButton("Earned Value");
 		btnEarnedValue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pm.printEVChart();
+				pm.printChart("Earned Value");
 			}
 		});
 		btnEarnedValue.setBounds(361, 335, 180, 29);
@@ -123,7 +123,7 @@ public class MenuUI {
 		JButton btnScheduleVariance = new JButton("Schedule Variance");
 		btnScheduleVariance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pm.printSVChart();
+				pm.printChart("Schedule Variance");
 			}
 		});
 		btnScheduleVariance.setBounds(361, 277, 180, 29);
@@ -132,7 +132,7 @@ public class MenuUI {
 		JButton btnCostVariance = new JButton("Cost Variance");
 		btnCostVariance.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pm.printCVChart();
+				pm.printChart("Cost Variance");
 			}
 		});
 		btnCostVariance.setBounds(361, 212, 180, 29);
