@@ -54,6 +54,10 @@ public class ProjectManagement {
 			}
 		}
 	}
+	
+	// -------------------------
+	// --PLOTS AND GRAPHS	----
+	// -------------------------
 
 	// Forward plot/print Project Schedule
 	public void printSchedule() {
@@ -97,14 +101,11 @@ public class ProjectManagement {
 		riskMatrix.getPlotRisks();
 
 	}
-
+	
 	// -------------------------
-	// --GETTERS AND SETTERS----
+	// --CALCULATIONS		----
 	// -------------------------
 
-	public RiskMatrix getRiskMatrix() {
-		return this.riskMatrix;
-	}
 
 	// EV with current schedule
 	public long getEarnedValue(LocalDate checkDate) {
@@ -173,6 +174,11 @@ public class ProjectManagement {
 
 		return returnDate;
 	}
+	
+	
+	//---------------------
+	//-- GETTERS ----------
+	//---------------------
 
 	public void getMemberContribution() {
 		memberAdmin.getPlotMemberContribution();
