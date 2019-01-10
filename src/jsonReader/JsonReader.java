@@ -51,7 +51,6 @@ public class JsonReader {
 	// -------------
 
 	public ArrayList<Member> memberReader() {
-		// TODO: move this into the 'Member' class?
 		ArrayList<Member> memberList = new ArrayList<>();
 		
 		String fileLocation = "members.json";

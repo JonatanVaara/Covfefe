@@ -56,9 +56,20 @@
 						"name" : "Christian",
 						"salary" : 120,
 						"plannedTaskTime" : {"Planning" : 28, "Risk Matrix" 5, "Member Contribution Chart" : 5, "Member's Task Summary" : 4, "Member's Time Summary" : 4, "Project Schedule" : 15, "Earned Value" : 5, "Schedule Variance" : 4, "Cost Variance" : 4 , "Running Prototype" : 3, "Menu and Interface" : 4, "Output" : 6, "FinalVersion" : 3},
-						"allocatedTaskTime" : {"Risk Matrix" : {
-                             	"24/11/2018" : 1
-                             }
+						"allocatedTaskTime" : {
+								"Risk Matrix" : {
+                             	"24/11/2018" : 2
+                             },
+                             
+									"Planning": { 
+									"27/11/2018": 4,
+									"29/11/2018": 3,
+                                	"04/12/2018": 4,
+									"06/12/2018": 4,
+									"11/12/2018": 4,
+									"13/12/2018": 3,
+									"18/12/2018": 4
+                             		}
                          }
 						
 },
@@ -72,7 +83,11 @@
 							"Planning": {
 								"27/11/2018": 4,
 								"29/11/2018": 3,
-                                "04/12/2018": 4
+                                "04/12/2018": 4,
+								"06/12/2018": 4,
+								"11/12/2018": 4,
+								"13/12/2018": 3,
+								"18/12/2018": 4
 							},
                             "Member Contribution Chart": {
                                 "30/11/2018": 2,
@@ -93,13 +108,13 @@
 								"10/12/2018": 1
                             },
      						"Earned Value" : {
-                             	"12/12/2018" : 2,
-                             	"13/12/2018" : 2,
-                             	
+                             	"11/12/2018" : 1,
+                             	"12/12/2018" : 1,
+                             	"13/12/2018" : 1 	
                             },
      						"Schedule Variance" : {
-                             	"14/12/2018" : 2,
-                             	"15/12/2018" : 2,
+                             	"14/12/2018" : 1,
+                             	"15/12/2018" : 1,
                              	"17/12/2018" : 2
                             },
      						"Cost Variance" : {
@@ -111,12 +126,17 @@
                             },
 							"Menu and Interface" : {
 								"07/01/2019" : 1,
-								"08/01/2019" : 2,
+								"08/01/2019" : 2
 							},
 							"Output" : {
 							"07/01/2019" : 2,							
 							"08/01/2019" : 2
-			}
+							},
+                   			"FinalVersion" : {
+                   			"07/01/2019" : 1,
+                   			"08/01/2019" : 1,
+                   			"09/01/2019" : 4
+                             		}
 
 						}						
 },
