@@ -3,7 +3,6 @@ package member;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.stream.Collectors;
 
 
@@ -16,49 +15,7 @@ public class MemberAdmin {
 		this.memberList = listOfMembers;	
 	}
 
-//	//-------------------------------------
-//	//Overview all members and planned time
-//	//-------------------------------------
-//	
-//	public String getOverviewMembersPlannedTime ()
-//	{
-//		String overview = "";		
-//		Iterator<Member> iterator = memberList.iterator();
-//		    while (iterator.hasNext()) {
-//		        Member member = iterator.next();
-//		    	if (iterator.hasNext()) {
-//		        	overview += member.getName() + ": ";
-//		        	overview += member.getTotalTimePlanned() + " hours \n";		        
-//		        	}
-//		        else {
-//		        	overview += member.getName() + ": ";
-//			        overview += member.getTotalTimePlanned() + " hours";
-//		        }
-//		     }
-//		return overview;    
-//	}
-//	
-//	//-------------------------------------
-//	//Overview all members and allocated time
-//	//-------------------------------------
-//	
-//	public String getOverviewMembersAllocatedTime ()
-//	{
-//		String overview = "";
-//		Iterator<Member> iterator = memberList.iterator();
-//		    while (iterator.hasNext()) {
-//		        Member member = iterator.next();
-//		        if (iterator.hasNext()) {
-//		        	overview += member.getName() + ": ";
-//		        	overview += member.getTotalTimeAllocated() + " hours \n";		        
-//		        	}
-//		        else {
-//		        	overview += member.getName() + ": ";
-//			        overview += member.getTotalTimeAllocated() + " hours";
-//		        }
-//		     }
-//		return overview;
-//	}
+
 	
 	//-------------------------
 	//get member-object from ID
@@ -105,17 +62,10 @@ public class MemberAdmin {
 	}
 	
 	
-//	//---------------------------------
-//	//List with planned Tasks per member
-//	//---------------------------------
-//	
-//	public String getMemberPlannedTasks (String ID) throws Exception
-//	{	
-//		Member chosenMember = retrieveMember(ID);		
-//		String taskList = chosenMember.getPlannedTasks().stream().collect(Collectors.joining("\n"));
-//		return taskList;
-//		
-//	}
+	//---------------------------------
+	//List with planned Tasks per member
+	//---------------------------------
+
 	
 	
 	public ArrayList<String> getAllMemberPlannedTasks(){
@@ -177,15 +127,6 @@ public class MemberAdmin {
 		return totalTime;
 	}
 	
-	//--------------------------------
-	//member's Time planned for Project
-	//--------------------------------		
-	
-//	public long getMemberPlannedTime (String ID) throws Exception
-//	{
-//		Member chosenMember = retrieveMember(ID);
-//		return chosenMember.getTotalTimePlanned();
-//	}
 	
 	//----------------------------------
 	//member's Time allocated for Project
